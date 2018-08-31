@@ -10,9 +10,7 @@ Outlook add-ins are web applications built using standard web technologies and l
 
 ## Install prerequisites
 
-Begin this lab by installing the tools that you'll use to create an add-in project. 
-
-- Install the latest version of [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office) globally.
+Begin this lab by installing the tools that you'll use to create your add-in project: [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office). To install the latest version of these tools globally, open the command prompt and run the following command.
 
 ```
 npm install -g yo generator-office
@@ -24,13 +22,13 @@ Next, complete the following steps to create the add-in project by using the **Y
 
 1. Create a folder on your local drive and name it `my-outlook-addin`. This is where you'll create the files for your add-in.
 
-1. Navigate to your new folder.
+1. Navigate to your new folder by running the following command from teh command prompt.
 
     ```
     cd my-outlook-addin
     ```
 
-1. Use the Yeoman generator to create an Outlook Add-in project. Run the following command and then answer the prompts as follows:
+1. Use the Yeoman generator to create an Outlook Add-in project. Run the following command from the command prompt and then answer the prompts as shown below:
 
     ```
     yo office
@@ -132,17 +130,15 @@ Open the file **src\index.js** to specify the script for the add-in. Replace the
 
 1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
 
-1. If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. 
-
-See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
+1. If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
 
 1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook Add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **my-office-add-in-manifest.xml** file.
 
 ## Try it out
 
-1. Once you've sideloaded the manifest, select or open a message in Outlook.
+1. Once you've sideloaded the manifest, open an appointment in a new window in Outlook.
 
-1. On the **Home** tab (**Message** tab if you opened the message in a new window), locate the add-in's **Display all properties** button.
+1. On the **Appointment** tab , locate the add-in's **Display all properties** button.
 
     ![A screenshot of a message window in Outlook with the add-in button highlighted](images/quick-start-button.PNG)
 
@@ -150,6 +146,6 @@ See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github
 
     ![A screenshot of the add-in's taskpane displaying message properties](images/quick-start-task-pane.PNG)
 
-## What next?
+## Congratulations!
 
 Congratulations, you've successfully created an Outlook add-in! To learn more about creating Outlook add-ins, checkout the Outlook add-ins developer documentation at [https://aka.ms/outlook-add-ins-docs](https://aka.ms/outlook-add-ins-docs).
