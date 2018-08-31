@@ -126,6 +126,22 @@ Open the file **src\index.js** to specify the script for the add-in. Replace the
     ...
     ```
 
+1. Change the type of extension point, since we want the button to be displayed on the ribbon only for the organizer of a meeting. 
+
+    Change this:
+
+        ```html
+        <!-- Message Read -->
+        <ExtensionPoint xsi:type="MessageReadCommandSurface">
+        ```
+    To this: 
+
+        ```html
+        <!-- Appointment Organizer -->
+        <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
+        ```
+    **TODO**: maybe other updates as well...to id values, e.g., 'msgReadGroup`
+
 ## Sideload the manifest
 
 1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
