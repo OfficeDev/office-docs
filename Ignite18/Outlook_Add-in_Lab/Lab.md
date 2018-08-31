@@ -1,4 +1,4 @@
-# Build an Outlook add-in (hands-on lab)
+# Build an Outlook add-in
 
 Outlook add-ins are web applications built using standard web technologies and loaded within the Outlook client. In this hands-on lab, you will use our new JavaScript APIs to build an event-driven room booking add-in. The add-in that you build will:
 
