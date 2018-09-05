@@ -10,6 +10,8 @@ Outlook add-ins are web applications built using standard web technologies and l
 
 ## Install prerequisites
 
+**IMPORTANT** Do this as part of VM image. (Remove from lab)
+
 Begin this lab by installing the tools that you'll use to create your add-in project: [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office). To install the latest version of these tools globally, open the command prompt and run the following command.
 
 ```
@@ -35,8 +37,8 @@ Next, complete the following steps to create the add-in project by using the **Y
     ```
 
     - **Choose a project type:** `Office Add-in project using Jquery framework`
-    - **Choose a script type:** `Javascript`
-    - **What do you want to name your add-in?:** `My Office Add-in`
+    - **Choose a script type:** `Typescript`
+    - **What do you want to name your add-in?:** `My Outlook Add-in`
     - **Which Office client application would you like to support?:** `Outlook`
     
     ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
@@ -47,7 +49,93 @@ Next, complete the following steps to create the add-in project by using the **Y
 
 At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Update the code as described in this section to customize the functionality of your add-in.
 
-### Step 1: Customize the HTML
+### Step 1: Customize the Manifest
+
+The add-in manifest define's the add-in's settings and capabilities. 
+
+1. Open the file **my-outlook-add-in-manifest.xml** file.
+
+1. The `ProviderName` element has a placeholder value. Replace it with your name.
+
+1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `Room Validator`.
+
+1. The `DefaultValue` attribute of the `SupportUrl` element has a placeholder. Replace it with `https://localhost:3000` and save the file.
+
+    ```xml
+    ...
+    <ProviderName>Jane Doe</ProviderName>
+    <DefaultLocale>en-US</DefaultLocale>
+    <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
+    <DisplayName DefaultValue="My Outlook Add-in" />
+    <Description DefaultValue="Room Validator Add-in"/>
+
+    <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
+    <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
+    <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
+
+    <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
+    <SupportUrl DefaultValue="https://localhost:3000" />
+    ...
+    ```
+
+1. Replace the entire contents of the `ExtensionPoint` element with the following XML markup. TODO: Change the type of extension point, since we want the button to be displayed on the ribbon in appointment compose mode. (By default, Yo Office creates a "Message Read" add-in.)
+
+    ```xml
+    <!-- Appointment Organizer -->
+    <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
+       <!-- Use the default tab of the ExtensionPoint or create your own with <CustomTab id="myTab"> -->
+      <OfficeTab id="TabDefault">
+        <!-- Up to 6 Groups added per Tab -->
+        <Group id="apptComposeGroup">
+          <Label resid="groupLabel" />
+          <!-- Launch the add-in : task pane button -->
+          <Control xsi:type="Button" id="apptComposeOpenPaneButton">
+            <Label resid="apptComposeButtonLabel" />
+            <Supertip>
+              <Title resid="apptComposeSuperTipTitle" />
+              <Description resid="apptComposeSuperTipDescription" />
+            </Supertip>
+            <Icon>
+              <bt:Image size="16" resid="icon16" />
+              <bt:Image size="32" resid="icon32" />
+              <bt:Image size="80" resid="icon80" />
+            </Icon>
+            <Action xsi:type="ShowTaskpane">
+              <SourceLocation resid="apptComposeTaskPaneUrl" />
+            </Action>
+          </Control>
+          <!-- Go to http://aka.ms/ButtonCommands to learn how to add more Controls: ExecuteFunction and Menu -->
+        </Group>
+      </OfficeTab>
+    </ExtensionPoint>    
+    ```
+
+1. Replace the entire contents of the `Resources` element with the following XML markup.
+
+    ```xml
+    <Resources>
+      <bt:Images>
+        <bt:Image id="icon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="icon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="icon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+      </bt:Images>
+      <bt:Urls>
+        <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
+        <bt:Url id="apptComposeTaskPaneUrl" DefaultValue="https://localhost:3000/index.html"/>
+      </bt:Urls>
+      <bt:ShortStrings>
+        <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
+        <bt:String id="customTabLabel"  DefaultValue="My Add-in Tab"/>
+        <bt:String id="apptComposeButtonLabel" DefaultValue="Room Validator"/>
+        <bt:String id="apptComposeSuperTipTitle" DefaultValue="Validate the choice of meeting room"/>
+      </bt:ShortStrings>
+      <bt:LongStrings>
+        <bt:String id="apptComposeSuperTipDescription" DefaultValue="Opens a pane which validates that the selected meeting room is available at the chosen time and can accommodate the number of invited attendees."/>
+      </bt:LongStrings>
+    </Resources>
+    ```
+
+### Step 2: Customize the HTML
 
 Open the file **index.html** to specify the HTML for the add-in. Replace the generated `main` tag with the following markup, and save the file.
 
@@ -62,7 +150,7 @@ Open the file **index.html** to specify the HTML for the add-in. Replace the gen
 </div>
 ```
 
-### Step 2: Customize the CSS
+### Step 3: Customize the CSS
 
 Open the file **app.css** to specify the custom styles for the add-in. Replace the entire contents with the following code and save the file.
 
@@ -93,54 +181,11 @@ Open the file **app.css** to specify the custom styles for the add-in. Replace t
 }
 ```
 
-### Step 3: Customize the script
+### Step 4: Customize the script
 
 Open the file **src\index.js** to specify the script for the add-in. Replace the entire contents with the following code and save the file.
 
 ...
-
-### Step 4: Customize the Manifest
-
-1. Open the file **my-outlook-add-in-manifest.xml** file.
-
-1. The `ProviderName` element has a placeholder value. Replace it with your name.
-
-1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `My First Outlook Add-in`.
-
-1. The `DefaultValue` attribute of the `SupportUrl` element has a placeholder. Replace it with `https://localhost:3000` and save the file.
-
-    ```
-    ...
-    <ProviderName>Jason Johnston</ProviderName>
-    <DefaultLocale>en-US</DefaultLocale>
-    <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
-    <DisplayName DefaultValue="My Office Add-in" />
-    <Description DefaultValue="My First Outlook Add-in"/>
-
-    <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
-    <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
-    <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
-
-    <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
-    <SupportUrl DefaultValue="https://localhost:3000" />
-    ...
-    ```
-
-1. Change the type of extension point, since we want the button to be displayed on the ribbon only for the organizer of a meeting. 
-
-    Change this:
-
-        ```html
-        <!-- Message Read -->
-        <ExtensionPoint xsi:type="MessageReadCommandSurface">
-        ```
-    To this: 
-
-        ```html
-        <!-- Appointment Organizer -->
-        <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
-        ```
-    **TODO**: maybe other updates as well...to id values, e.g., 'msgReadGroup`
 
 ## Sideload the manifest
 
