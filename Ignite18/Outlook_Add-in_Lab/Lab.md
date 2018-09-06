@@ -37,7 +37,7 @@ Next, complete the following steps to create the add-in project by using the **Y
     ```
 
     - **Choose a project type:** `Office Add-in project using Jquery framework`
-    - **Choose a script type:** `Typescript`
+    - **Choose a script type:** `JavaScript`
     - **What do you want to name your add-in?:** `My Outlook Add-in`
     - **Which Office client application would you like to support?:** `Outlook`
     
@@ -78,6 +78,14 @@ The add-in manifest define's the add-in's settings and capabilities.
     ...
     ```
 
+1. Replace the entire contents of the 'Rule` element wiht the following XML markup.
+
+    ```xml
+    <Rule xsi:type="RuleCollection" Mode="Or">
+      <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Edit"/>
+    </Rule>
+    ```
+
 1. Replace the entire contents of the `ExtensionPoint` element with the following XML markup. TODO: Change the type of extension point, since we want the button to be displayed on the ribbon in appointment compose mode. (By default, Yo Office creates a "Message Read" add-in.)
 
     ```xml
@@ -107,7 +115,7 @@ The add-in manifest define's the add-in's settings and capabilities.
           <!-- Go to http://aka.ms/ButtonCommands to learn how to add more Controls: ExecuteFunction and Menu -->
         </Group>
       </OfficeTab>
-    </ExtensionPoint>    
+    </ExtensionPoint>
     ```
 
 1. Replace the entire contents of the `Resources` element with the following XML markup.
@@ -137,9 +145,9 @@ The add-in manifest define's the add-in's settings and capabilities.
 
 ### Step 2: Customize the HTML
 
-Open the file **index.html** to specify the HTML for the add-in. Replace the generated `main` tag with the following markup, and save the file.
+Open the file **index.html** to specify the HTML for the add-in. Replace the entire contents of the `main` tag with the following HTML markup, and save the file.
 
-```
+```html
 <div id="content-main">
     <div class="padding">
         <p>Choose the button below to set the color of the selected range to green.</p>
@@ -154,36 +162,102 @@ Open the file **index.html** to specify the HTML for the add-in. Replace the gen
 
 Open the file **app.css** to specify the custom styles for the add-in. Replace the entire contents with the following code and save the file.
 
-```
-#content-header {
-    background: #2a8dd4;
-    color: #fff;
-    position: absolute;
-    top: 0;
-    left: 0;
+```css
+html, body {
     width: 100%;
-    height: 80px; 
-    overflow: hidden;
+    height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
-#content-main {
-    background: #fff;
-    position: fixed;
-    top: 80px;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    overflow: auto; 
+ul, p, h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
 }
 
-.padding {
-    padding: 15px;
+.ms-welcome {
+    position: relative;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    min-height: 800px;
+    min-width: 150px;
+    overflow: auto;
+    overflow-x: hidden;
+}
+
+.ms-welcome__header {
+    min-height: 40px;
+    padding: 10px;
+    padding-bottom: 20px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    align-items: center;
+    -webkit-justify-content: flex-end;
+    justify-content: flex-end;
+}
+
+.ms-welcome__header > h1 {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.ms-welcome__main {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+    -webkit-align-items: center;
+    align-items: left;
+    -webkit-flex: 1 0 0;
+    flex: 1 0 0;
+    padding: 20px 20px;
+}
+
+.ms-welcome__main > h2 {
+    width: 100%;
+    text-align: left;
+}
+
+.ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
+    font-size: 14pt;
+}
+
+.ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
+    margin-right: 10px;
+}
+
+@media (min-width: 0) and (max-width: 350px) {
+    .ms-welcome__features {
+        width: 100%;
+    }
 }
 ```
+
+Update the following styles:
+- .ms-welcome
+- .ms-welcome__header
+- .ms-welcome__header > h1
 
 ### Step 4: Customize the script
 
-Open the file **src\index.js** to specify the script for the add-in. Replace the entire contents with the following code and save the file.
+Open the file **src\index.js** to specify the script for the add-in. 
+
+1. Delete all initial content from **src\index.js**.
+
+1. Add the following code at the top of the file to register event handlers for the `Office.EventType.AppointmentTimeChanged` event and the `Office.EventType.RecipientsChanged` event.
+
+1. Save the file.
 
 ...
 
