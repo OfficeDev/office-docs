@@ -288,7 +288,7 @@ Open the file **src\index.js** to specify the script for the add-in.
 
         ![Certificate Import Wizard finish dialog window](images/cert-import-finish.png)
 
-1. Now that you're add-in applicaiton is running on a local web server and your workstation trusts the add-in's self-signed certificate, you can sideload the add-in in Outlook.
+1. Now that your add-in application is running on a local web server and your workstation trusts the add-in's self-signed certificate, you can sideload the add-in in Outlook.
 
     1. Open Outlook and select **Get Add-ins** from the ribbon of the **Home** tab.
 
