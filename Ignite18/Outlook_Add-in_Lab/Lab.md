@@ -4,7 +4,7 @@ Outlook add-ins are web applications built using standard web technologies and l
 
 In this lab:
 
-- [Create the add-in projcct](#create-the-add-in-project)
+- [Create the add-in project](#create-the-add-in-project)
 - [Update the code](#update-the-code)
 - [Sideload the manifest](#sideload-the-manifest)
 - [Try it out](#try-it-out)
@@ -254,11 +254,57 @@ Open the file **src\index.js** to specify the script for the add-in.
 
 ## Sideload the manifest
 
-1. In your command prompt/shell, make sure you are in the root directory of your project, and enter `npm start`. This will start a web server at `https://localhost:3000` and open your default browser to that address.
+1. Open a command prompt and navigate to the root directory of your project. For example, if you created the `my-outlook-addin` folder at the root of `C:\`, run the following command from the command prompt to navigate to the root directory of your project within that folder.
 
-1. If your browser indicates that the site's certificate is not trusted, you will need to add the certificate as a trusted certificate. Outlook will not load add-ins if the site is not trusted. See [Adding Self-Signed Certificates as Trusted Root Certificate](https://github.com/OfficeDev/generator-office/blob/master/src/docs/ssl.md) for details.
+    ```
+    cd C:\my-outlook-addin\My Outlook Add-in
+    ```
 
-1. After your browser loads the add-in page without any certificate errors, follow the instructions in [Sideload Outlook Add-ins for testing](sideload-outlook-add-ins-for-testing.md) to sideload the **my-office-add-in-manifest.xml** file.
+    **Note**: In the example above, the `My Outlook Add-in` portion of the path represents the name that you specified for your add-in when you used the **Yeoman generator for Office Add-ins** to [create your add-in project](#create-the-add-in-project).
+
+1. At the command prompt in the root directory of your project, run the following command to start a web server at `https://localhost:3000`.
+
+    ```
+    npm start
+    ```
+
+1. Office clients require that add-ins come from a trusted and secure location. Before you can test your add-in locally within Outlook, you must configure your workstation to trust the local web server's self-signed certificate. To do this, complete the following steps:
+
+    1. In File Explorer, navigate to the `certs` folder within your add-in project. For example, , if you created the `my-outlook-addin` folder at the root of `C:\` and named your add-in `My Outlook Add-in` when you created your add-in project using the **Yeoman generator for Office Add-ins**, navigate to the `C:\my-outlook-addin\My Outlook Add-in\certs` folder in File Explorer.
+
+        ![File Explorer screenshot](images/certs-path.png)
+
+    1. Within the `certs` folder, double-click on the file `ca.crt`. In the **Certificate** dialog window that opens, press `Install Certificate`.
+
+        ![Certificate dialog window](images/install-cert.png)
+
+    1. In the **Certificate Import Wizard** dialog window, choose **Local Machine** and press **Next**.
+
+        ![Certificate Import Wizard dialog window](images/cert-import.png)
+
+    1. Select **Place all certificates in the following store** and then press **Browse**, select **Trusted Root Certification Authorities**, and press **OK**. Press **Next** to advance to the final step of the certificate import process.
+
+        ![Certificate Import Wizard details dialog window](images/cert-import-details.png)
+
+    1. Press **Finish** to import the certificate.
+
+        ![Certificate Import Wizard finish dialog window](images/cert-import-finish.png)
+
+1. Complete the following steps to sideload the add-in in Outlook.
+
+    1. Open Outlook and select **Get Add-ins** from the ribbon of the **Home** tab.
+
+        ![Outlook 2016 Home tab ribbon Get Add-ins button](images/home-ribbon-addins.png)
+
+    1. In the dialog window that opens, select **My add-ins**.
+
+        ![Outlook 2016 My add-ins](images/my-add-ins.png)
+
+    1. In the **Custom add-ins** section at the bottom of the dialog window, select **Add a custom add-in** and then choose **Add from file**.
+
+        ![Outlook 2016 My add-ins add custom add-in from file](images/my-add-ins-add-from-file.png)
+
+    1. In the **Choose File to Upload** dialog window, navigate to your project folder, select your add-in project's manifest file `my-outlook-add-in-manifest.xml`, and press **Open**. Accept all prompts during the installation.
 
 ## Try it out
 
