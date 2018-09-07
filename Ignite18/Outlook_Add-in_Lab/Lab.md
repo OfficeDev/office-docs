@@ -1,6 +1,6 @@
 # Build an event-driven Outlook add-in
 
-Outlook add-ins are web applications built using standard web technologies and loaded within the Outlook client. In this lab, you will use Outlook JavaScript APIs to build an event-driven add-in that can be used to validate room availabilty and capacity when creating an appointment.
+Outlook add-ins are web applications built using standard web technologies and loaded within the Outlook client. In this lab, you'll use Outlook JavaScript APIs to build an event-driven add-in that can be used to validate room availabilty and capacity when creating an appointment.
 
 In this lab:
 
@@ -21,7 +21,7 @@ Complete the following steps to create the add-in project by using the **Yeoman 
     cd C:\my-outlook-addin
     ```
 
-1. Use the **Yeoman generator for Office Add-ins** to create an Outlook Add-in project by running the following command from the command prompt answering the prompts as shown below:
+1. Use the **Yeoman generator for Office Add-ins** to create an Outlook Add-in project by running the following command from the command prompt. Answer the prompts as shown below:
 
     ```
     yo office
