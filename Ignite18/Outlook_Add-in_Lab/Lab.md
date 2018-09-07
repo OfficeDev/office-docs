@@ -1,36 +1,27 @@
-# Build an Outlook add-in
+# Build an event-driven Outlook add-in
 
-Outlook add-ins are web applications built using standard web technologies and loaded within the Outlook client. In this hands-on lab, you will use our new JavaScript APIs to build an event-driven room booking add-in. The add-in that you build will:
+Outlook add-ins are web applications built using standard web technologies and loaded within the Outlook client. In this lab, you will use Outlook JavaScript APIs to build an event-driven add-in that can be used to validate room availabilty and capacity when creating an appointment.
 
-- Be launched when the user clicks a button in the Outlook ribbon.
-- Run in a task pane that's displayed to the right of an appointment in compose mode.
-- Display the email address of the appointment organizer.
-- Alert the user when recipients are changed.
-- Alert the user when appointment time is changed.
+In this lab:
 
-## Install prerequisites
-
-**IMPORTANT** Do this as part of VM image. (Remove from lab)
-
-Begin this lab by installing the tools that you'll use to create your add-in project: [Yeoman](https://github.com/yeoman/yo) and the [Yeoman generator for Office Add-ins](https://github.com/OfficeDev/generator-office). To install the latest version of these tools globally, open the command prompt and run the following command.
-
-```
-npm install -g yo generator-office
-```
+- [Create the add-in projcct](#create-the-add-in-project)
+- [Update the code](#update-the-code)
+- [Sideload the manifest](#sideload-the-manifest)
+- [Try it out](#try-it-out)
 
 ## Create the add-in project
 
-Next, complete the following steps to create the add-in project by using the **Yeoman generator for Office Add-ins**.
+Complete the following steps to create the add-in project by using the **Yeoman generator for Office Add-ins**.
 
-1. Create a folder on your local drive and name it `my-outlook-addin`. This is where you'll create the files for your add-in.
+1. Use either File Explorer or the command prompt to create a folder on your local drive, and name the folder `my-outlook-addin`. This is where you'll create the add-in project.
 
-1. Navigate to your new folder by running the following command from teh command prompt.
+1. Open a command prompt and navigate to your new folder. For example, if you created the `my-outlook-addin` folder at the root of `C:\`, run the following command from the command prompt to navigate to that folder.
 
     ```
-    cd my-outlook-addin
+    cd C:\my-outlook-addin
     ```
 
-1. Use the Yeoman generator to create an Outlook Add-in project. Run the following command from the command prompt and then answer the prompts as shown below:
+1. Use the **Yeoman generator for Office Add-ins** to create an Outlook Add-in project by running the following command from the command prompt answering the prompts as shown below:
 
     ```
     yo office
@@ -41,7 +32,7 @@ Next, complete the following steps to create the add-in project by using the **Y
     - **What do you want to name your add-in?:** `My Outlook Add-in`
     - **Which Office client application would you like to support?:** `Outlook`
     
-    ![A screenshot of the prompts and answers for the Yeoman generator](images/quick-start-yo-prompts.PNG)
+    ![A screenshot of the prompts and answers for the Yeoman generator](images/yo-prompts.png)
     
     After you complete the wizard, the generator will create the project and install supporting Node components.
 
