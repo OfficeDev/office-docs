@@ -270,7 +270,7 @@ Before you can test your add-in in Outlook, you must start the application web s
     npm start
     ```
 
-### Start the web server
+### Trust the local web server's certificate
 
 Office clients require that add-ins come from a trusted and secure location. Before you can test your add-in locally within Outlook, you must configure your workstation to trust the local web server's self-signed certificate. To do this, complete the following steps:
 
