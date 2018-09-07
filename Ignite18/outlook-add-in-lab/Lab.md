@@ -1,4 +1,4 @@
-# Build Outlook add-in with Office JavaScript APIs
+# Build an Outlook add-in with Office JavaScript APIs
 
 Outlook add-ins are web applications built using standard web technologies and loaded within the Outlook client. In this lab, you'll use Outlook JavaScript APIs to build an event-driven add-in that can be used to validate room availabilty and capacity when creating an appointment.
 
