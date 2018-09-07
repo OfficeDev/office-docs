@@ -254,7 +254,7 @@ Open the file **src\index.js** to specify the script for the add-in.
 
 ## Prepare to test your add-in
 
-Before you can test your add-in in Outlook, you must start the application web server, trust the local web server's certificate, and sideload the add-in's manifest in Outlook. This section describes how to complete these tasks.
+Before you can test your add-in in Outlook, you must complete the tasks described in this section. 
 
 ### Start the web server
 
