@@ -254,7 +254,7 @@ Open the file **src\index.js** to specify the script for the add-in.
 
 ## Prepare to test your add-in
 
-Before you can test your add-in in Outlook, you must start the application web server, trust the local web server's certificate, and sideload the add-in's manifest in Outlook.
+Before you can test your add-in in Outlook, you must start the application web server, trust the local web server's certificate, and sideload the add-in's manifest in Outlook. This section describes how to complete these tasks.
 
 ### Start the web server
 
@@ -294,9 +294,9 @@ Office clients require that add-ins come from a trusted and secure location. Bef
 
     ![Certificate Import Wizard finish dialog window](images/cert-import-finish.png)
 
-### sideload the manifest in Outlook
+### Sideload the add-in's manifest in Outlook
 
-Now that your add-in application is running on a local web server and your workstation trusts the local web server's self-signed certificate, you can sideload the manifest in Outlook.
+Now that your add-in application is running on a local web server and your workstation trusts the local web server's self-signed certificate, you can upload the add-in's manifest file to Outlook. The manifest file defines your add-in's settings and capabilities, providing Outlook with the information it requires to run your add-in.
 
 1. Open Outlook and select **Get Add-ins** from the ribbon of the **Home** tab.
 
