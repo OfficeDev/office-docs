@@ -312,15 +312,286 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ### Step 4: Customize the script
 
-Open the file **src\index.js** to specify the script for the add-in. 
+1. Open the file **src\index.js** to specify the script for the add-in. 
 
-1. Delete all initial content from **src\index.js**.
+1. Replace the entire contents of the file with the following code, and save the file.
 
-1. Add the following code at the top of the file to register event handlers for the `Office.EventType.AppointmentTimeChanged` event and the `Office.EventType.RecipientsChanged` event.
+    ```js
+    'use strict';
 
-1. Save the file.
+    (function () {
+        var attendeeCount = 0;
 
-...
+        Office.initialize = (reason) => {
+            $('#app-body').show();
+            $('#appointment-details').hide();
+
+            $(document).ready(function () {
+
+                // specify functions for UI events
+                $('#select').click(processRoomSelection);
+                $('#room').on('change', processRoomChange);
+
+                // set initial message
+                $('#result-message').html('Choose a room from the list above and then press <b>Select</b> to see validation results.');
+
+                // get initial values for appointment time and number of attendees
+                getAppointmentTime();
+                getNumberOfAttendees();
+
+                // TODO-1
+                // register event handler for the Office.EventType.AppointmentTimeChanged event
+                
+                // TODO-2
+                // register event handler for the Office.EventType.RecipientsChanged event
+            });
+        };
+
+        // TODO-3
+        // processApptTimeChange()
+
+        // TODO-4
+        // processRecipientChange
+
+        function getAppointmentTime() {
+            // get start time and end time of the appointment
+            var promise = new Promise(function(resolve, reject) {
+                Office.context.mailbox.item.start.getAsync(
+                    function (asyncResult) {
+                        if (asyncResult.status == Office.AsyncResultStatus.Failed){
+                            console.log(asyncResult.error.message);
+                        }
+                        else {
+                            $('#start-time').html(asyncResult.value.toLocaleString());
+
+                            Office.context.mailbox.item.end.getAsync(
+                                function (asyncResult) {
+                                    if (asyncResult.status == Office.AsyncResultStatus.Failed){
+                                        console.log(asyncResult.error.message);
+                                    }
+                                    else {
+                                        $('#end-time').html(asyncResult.value.toLocaleString());
+                                        resolve();
+                                    }
+                                });
+                        }
+                    });
+            });
+            return promise;
+        }
+
+        function getNumberOfAttendees() {
+            // get the total number of attendees
+            var promise = new Promise(function(resolve, reject) {
+                Office.context.mailbox.item.requiredAttendees.getAsync(
+                    function (asyncResult) {
+                        if (asyncResult.status == Office.AsyncResultStatus.Failed){
+                            console.log(asyncResult.error.message);
+                        }
+                        else {
+                            // add 1 to the number of required attendees, to account for the organizer
+                            var requiredAttendees = asyncResult.value;
+                            attendeeCount = requiredAttendees.length + 1;
+                            $('#attendees-count').html(attendeeCount);
+
+                            Office.context.mailbox.item.optionalAttendees.getAsync(
+                                function (asyncResult) {
+                                    if (asyncResult.status == Office.AsyncResultStatus.Failed){
+                                        console.log(asyncResult.error.message);
+                                    }
+                                    else {
+                                        var optionalAttendees = asyncResult.value;
+                                        attendeeCount += optionalAttendees.length;
+                                        $('#attendees-count').html(attendeeCount);
+                                        resolve();
+                                    }
+                                }
+                            );
+                        }
+                    }
+                );
+            });
+            return promise;
+        };
+
+        function processRoomChange() {
+            // get capacity of the room that's selected in the list and update UI element to display it
+            getRoomCapacity();
+
+            // get the availability period of the room that's selected in the list and update UI element to display it
+            getRoomAvailabilityPeriod();
+        }
+
+        function processRoomSelection() {    
+            validateRoomChoice();
+
+            // set appointment location
+            var roomLocation;
+            if ($('#room').val().substring(0, 1) !== '0') {
+                roomLocation = $('#room option:selected').text();
+            } else {
+                roomLocation = '';
+            }
+
+            Office.context.mailbox.item.location.setAsync(roomLocation, function (result) {
+                if (result.status == Office.AsyncResultStatus.Failed) {
+                    console.log(result.error.message);
+                }
+            });
+        }
+
+        function validateRoomChoice() {
+            var roomCapacity = getRoomCapacity();
+            var isRoomAvailable = getRoomAvailability();
+            var isValid = true;
+
+            getRoomAvailabilityPeriod();
+
+            $('#result-list').empty();
+
+            if ($('#room').val().substring(0, 1) !== '0') {
+                // show validation result for room capacity 
+                if (attendeeCount > roomCapacity) {
+                    $('#result-list').append('<li class="ms-ListItem"><i class="ms-Icon ms-Icon--Cancel"></i>Room capacity is insufficient</li>');
+                    isValid = false;
+                } else {
+                    $('#result-list').append('<li class="ms-ListItem"><i class="ms-Icon ms-Icon--Accept"></i>Room capacity is sufficient</li>');
+                }
+
+                // show validation result for room availability
+                if (isRoomAvailable) {
+                    $('#result-list').append('<li class="ms-ListItem"><i class="ms-Icon ms-Icon--Accept"></i>Room is available</li>');
+                } else {
+                    $('#result-list').append('<li class="ms-ListItem"><i class="ms-Icon ms-Icon--Cancel"></i>Room is unavailable</li>');
+                    isValid = false;
+                }
+
+                // show message indicating validation results
+                if (isValid === true) {
+                    $('#result-message').html('The selected room (<b>' + $('#room option:selected').text() + '</b>) is valid.');
+                } else {
+                    $('#result-message').html('The selected room (<b>' + $('#room option:selected').text() + '</b>) is invalid. Fix issue(s) before sending this invitation.');
+                }
+            }
+            else {
+                $('#result-message').html('Choose a room from the list above and then press <b>Select</b> to see validation results.');
+            }
+        }
+
+        function getRoomCapacity() {
+            // Note: For simplicity, room capacity logic is hardcoded in this example code.
+            // In a real-world implemention, room capacity data would likely be retrieved from a web service or database.
+
+            // from value of selected list item, take first character (number = room capacity)
+            var roomCapacity = $('#room').val().substring(0, 1);
+            if (roomCapacity === '0') {
+                $('#room-capacity').text('n/a');
+            } else {
+                $('#room-capacity').text(roomCapacity);
+            }
+
+            return roomCapacity;
+        }
+
+        function getRoomAvailabilityPeriod() {
+            // Note: For simplicity, room availability logic is hardcoded in this example code.
+            // In a real-world implemention, room availability data would likely be retrieved from a web service or database.
+
+            // from value of selected DDL item, take second character
+            //   a = available in the AM
+            //   p = available in the PM
+            var roomAvailability = $('#room').val().substring(1);
+            if (roomAvailability === 'n') {
+                $('#room-availability').text('n/a');
+            } else if (roomAvailability === "a") {
+                $('#room-availability').text('AM');
+            } else {
+                $('#room-availability').text('PM');
+            }
+        }
+
+        function getRoomAvailability() {
+            // Note: For simplicity, room availability logic is hardcoded in this example code.
+            // In a real-world implemention, room availability data would likely be retrieved from a web service or database.
+            
+            // from value of selected DDL item, take second character 
+            //   a = available in the AM
+            //   p = available in the PM
+            var roomAvailability = $('#room').val().substring(1);
+
+            // determine whether start time and end time occur in the AM or PM
+            var start = $('#start-time').text();
+            var end = $('#end-time').text();
+            var startPeriod = start.substring(start.length-2);
+            var endPeriod = end.substring(end.length-2);
+
+            // return availability result
+            if ((roomAvailability === 'a' && startPeriod === 'AM' && endPeriod === 'AM') || (roomAvailability === 'p' && startPeriod === 'PM' && endPeriod === 'PM')) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    })();
+    ```
+
+1. Within **index.js**, find the comment labeled `TODO-1` and replace it with the following code to register an event handler for the `Office.EventType.AppointmentTimeChanged` event. This code specifies that when the appointment time changes, the `processApptTimeChange` function will run.
+
+    ```js
+    // register event handler for the Office.EventType.AppointmentTimeChanged event
+    Office.context.mailbox.item.addHandlerAsync(Office.EventType.AppointmentTimeChanged, 
+        processApptTimeChange,
+        function (result) {
+            if (result.status == Office.AsyncResultStatus.Failed) {
+                console.log(result.error.message);
+            }
+        }
+    );
+    ```
+
+1. Within **index.js**, find the comment labeled `TODO-2` and replace it with the following code to register an event handler for the `Office.EventType.RecipientsChanged` event. This code specifies that when recipients are added or removed, the `processRecipientChange` function will run.
+
+    ```js
+    // register event handler for the Office.EventType.RecipientsChanged event
+    Office.context.mailbox.item.addHandlerAsync(Office.EventType.RecipientsChanged, 
+        processRecipientChange,
+        function (result) {
+            if (result.status == Office.AsyncResultStatus.Failed) {
+                console.log(result.error.message);
+            }
+        }
+    );
+    ```
+
+1. Within **index.js**, find the comment labeled `TODO-3` and replace it with the following code. This is the event handler function that runs when the `Office.EventType.AppointmentTimeChanged` event occurs. The add-in retrieves the new appointment time, verifies whether the room is available at that time, and updates the task pane user interface to convey the result.
+
+    ```js
+    function processApptTimeChange(result) {
+        // get new appointment time, then verify whether the selected room is available
+        getAppointmentTime()
+            .then(function() {
+                validateRoomChoice();
+            })
+            .catch(function(e) {
+                console.log(e);
+            });
+    };
+    ```
+
+1. Within **index.js**, find the comment labeled `TODO-4` and replace it with the following code. This is the event handler function that runs when the `Office.EventType.RecipientsChanged` event occurs. The add-in retrieves the new number of attendees, verifies whether the room capacity is sufficient for that number of attendees, and updates the task pane user interface to convey the result.
+
+    ```js
+    function processRecipientChange(result) {
+        // get new number of attendees, then verify whether the room capacity is sufficient
+        getNumberOfAttendees()
+            .then(function() {
+                validateRoomChoice();
+            })
+            .catch(function(e) {
+                console.log(e);
+            });
+    }
+    ```
 
 ## Prepare to test your add-in
 
