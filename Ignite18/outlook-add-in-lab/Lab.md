@@ -673,7 +673,7 @@ Now for the fun part -- it's time to try out the add-in that you've built.
 
 1. In Calendar view, press **New Appointment** to create a new appointment.
 
-1. In the ribbon of the **Untitled - Appointment** window that opens, choose **Invite Attendees** to add the recipients field (**To...**) to the appointment.
+1. In the ribbon of the **Untitled - Appointment** window, choose **Invite Attendees** to add the **To...** recipients field to the appointment.
 
     ![A screenshot of the Outlook ribbon with the Invite Attendees button highlighted](images/ribbon-invite-attendees.png)
 
@@ -683,9 +683,7 @@ Now for the fun part -- it's time to try out the add-in that you've built.
 
 1. Specify meeting information.
     
-    - Add one recipient to the **To...** field. 
-    
-        **Note**: For this lab, use whatever recipient email address(es) you want to use, as you won't actually be sending the meeting invitation.
+    - Add one recipient to the **To...** field. (You won't actually be sending this meeting invitation, so specify any recipient that you wish.)
 
     - Set **Start time** to **October 1, 2018** (10/1/2018) at **9:00 am**.
 
@@ -697,9 +695,13 @@ Now for the fun part -- it's time to try out the add-in that you've built.
     - When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
     - The **Validation results** section of the add-in task pane conveys that room capacity is sufficient (1 recipient + organizer = 2 attendees), but that the room is unavailable at the specified time.
 
+    ![A screenshot of an Outlook meeting invite with add-in task pane](images/invite-one-recipient-carter.png)
+
 1. Add another recipient to the **To...** field of the meeting invite.
 
-    - When you add the new recipient, the **Validation results** section of the task pane automatically updates to convey that room capacity is insufficient (2 recipients + organizer = 3 attendees) and the room is unavailable, and you're prompted to fix this issue before sending the invitation.
+    - When you add the new recipient, the **Validation results** section of the task pane automatically updates to convey that room capacity is insufficient (2 recipients + organizer = 3 attendees) and the room is unavailable at the specified time.
+
+    ![A screenshot of an Outlook meeting invite with add-in task pane](images/invite-two-recipients-carter.png)
 
 1. In the **Choose a room** section of the add-in task pane, choose **Conference Room Johnson** from the list and press **Select**. 
 
@@ -707,10 +709,14 @@ Now for the fun part -- it's time to try out the add-in that you've built.
     - When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
     - The **Validation results** section of the add-in task pane conveys that room capacity is sufficient (2 recipients + organizer = 3 attendees), but that the room is unavailable at the specified time.
  
+    ![A screenshot of an Outlook meeting invite with add-in task pane](images/invite-two-recipients-johnson-am.png)
+
  1. Change the **Start time** of the meeting to **2:00pm**. (The **End time** automatically adjusts to **3:00pm** since meeting duration is one hour.)
 
     - When you change the time of the meeting, the **Validation results** section of the task pane automatically updates to convey that room room capacity is sufficient (2 recipients + organizer = 3 attendees) and the room is available.
- 
+
+    ![A screenshot of an Outlook meeting invite with add-in task pane](images/invite-two-recipients-johnson-pm.png)
+
 ## Congratulations!
 
 Congratulations, you've successfully created an Outlook add-in! To learn more about creating Outlook add-ins, checkout the Outlook add-ins developer documentation at [https://aka.ms/outlook-add-ins-docs](https://aka.ms/outlook-add-ins-docs).
