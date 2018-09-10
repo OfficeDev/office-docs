@@ -42,9 +42,9 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ### Step 1: Customize the manifest file
 
-The add-in's manifest file define's the add-in's settings and capabilities. 
+The manifest file defines the add-in's settings and capabilities. 
 
-1. Open the **my-outlook-add-in-manifest.xml** file.
+1. Open the file **my-outlook-add-in-manifest.xml**.
 
 1. Replace the entire contents of the file with the following markup and save the file. Notice the following things about this markup:
 
