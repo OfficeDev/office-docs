@@ -59,8 +59,6 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
             xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
             xsi:type="MailApp">
 
-    <!-- Begin Basic Settings -->
-
     <Id>bac018a4-efdb-494b-aa48-dd7c9eec25c4</Id>
     <Version>1.0.0.0</Version>
     <ProviderName>Jane Doe</ProviderName>
@@ -76,7 +74,7 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
     </Hosts>
     <Requirements>
         <Sets>
-        <Set Name="Mailbox" MinVersion="1.1" />
+            <Set Name="Mailbox" MinVersion="1.1" />
         </Sets>
     </Requirements>
     <FormSettings>
@@ -99,62 +97,62 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
         <Requirements>
-        <bt:Sets DefaultMinVersion="1.3">
-            <bt:Set Name="Mailbox" />
-        </bt:Sets>
+            <bt:Sets DefaultMinVersion="1.3">
+                <bt:Set Name="Mailbox" />
+            </bt:Sets>
         </Requirements>
         <Hosts>
-        <Host xsi:type="MailHost">
+            <Host xsi:type="MailHost">
+                <DesktopFormFactor>
+                    <FunctionFile resid="functionFile" />
 
-            <DesktopFormFactor>
-                <FunctionFile resid="functionFile" />
+                    <!-- Button for Appointment Organizer -->
+                    <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
+                        <OfficeTab id="TabDefault">
+                            <Group id="apptComposeGroup">
+                                <Label resid="groupLabel" />
+                                <Control xsi:type="Button" id="apptComposeOpenPaneButton">
+                                <Label resid="apptComposeButtonLabel" />
+                                <Supertip>
+                                    <Title resid="apptComposeSuperTipTitle" />
+                                    <Description resid="apptComposeSuperTipDescription" />
+                                </Supertip>
+                                <Icon>
+                                    <bt:Image size="16" resid="icon16" />
+                                    <bt:Image size="32" resid="icon32" />
+                                    <bt:Image size="80" resid="icon80" />
+                                </Icon>
+                                <Action xsi:type="ShowTaskpane">
+                                    <SourceLocation resid="apptComposeTaskPaneUrl" />
+                                </Action>
+                                </Control>
+                            </Group>
+                        </OfficeTab>
+                    </ExtensionPoint>
 
-                <!-- Button for Appointment Organizer -->
-                <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
-                    <OfficeTab id="TabDefault">
-                        <Group id="apptComposeGroup">
-                            <Label resid="groupLabel" />
-                            <Control xsi:type="Button" id="apptComposeOpenPaneButton">
-                            <Label resid="apptComposeButtonLabel" />
-                            <Supertip>
-                                <Title resid="apptComposeSuperTipTitle" />
-                                <Description resid="apptComposeSuperTipDescription" />
-                            </Supertip>
-                            <Icon>
-                                <bt:Image size="16" resid="icon16" />
-                                <bt:Image size="32" resid="icon32" />
-                                <bt:Image size="80" resid="icon80" />
-                            </Icon>
-                            <Action xsi:type="ShowTaskpane">
-                                <SourceLocation resid="apptComposeTaskPaneUrl" />
-                            </Action>
-                            </Control>
-                        </Group>
-                    </OfficeTab>
-                </ExtensionPoint>
-            </DesktopFormFactor>
-        </Host>
+                </DesktopFormFactor>
+            </Host>
         </Hosts>
 
         <Resources>
-        <bt:Images>
-            <bt:Image id="icon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-            <bt:Image id="icon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-            <bt:Image id="icon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-        </bt:Images>
-        <bt:Urls>
-            <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
-            <bt:Url id="apptComposeTaskPaneUrl" DefaultValue="https://localhost:3000/index.html"/>
-        </bt:Urls>
-        <bt:ShortStrings>
-            <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
-            <bt:String id="customTabLabel"  DefaultValue="My Add-in Tab"/>
-            <bt:String id="apptComposeButtonLabel" DefaultValue="Room Validator"/>
-            <bt:String id="apptComposeSuperTipTitle" DefaultValue="Validate the choice of meeting room"/>
-        </bt:ShortStrings>
-        <bt:LongStrings>
-            <bt:String id="apptComposeSuperTipDescription" DefaultValue="Opens a pane which validates that the selected meeting room is available at the chosen time and can accommodate the number of invited attendees."/>
-        </bt:LongStrings>
+            <bt:Images>
+                <bt:Image id="icon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+                <bt:Image id="icon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+                <bt:Image id="icon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+            </bt:Images>
+            <bt:Urls>
+                <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
+                <bt:Url id="apptComposeTaskPaneUrl" DefaultValue="https://localhost:3000/index.html"/>
+            </bt:Urls>
+            <bt:ShortStrings>
+                <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
+                <bt:String id="customTabLabel"  DefaultValue="My Add-in Tab"/>
+                <bt:String id="apptComposeButtonLabel" DefaultValue="Room Validator"/>
+                <bt:String id="apptComposeSuperTipTitle" DefaultValue="Validate the choice of meeting room"/>
+            </bt:ShortStrings>
+            <bt:LongStrings>
+                <bt:String id="apptComposeSuperTipDescription" DefaultValue="Opens a pane which validates that the selected meeting room is available at the chosen time and can accommodate the number of invited attendees."/>
+            </bt:LongStrings>
         </Resources>
     </VersionOverrides>
     </OfficeApp>
