@@ -46,92 +46,120 @@ The add-in manifest define's the add-in's settings and capabilities.
 
 1. Open the file **my-outlook-add-in-manifest.xml** file.
 
-1. The `ProviderName` element has a placeholder value. Replace it with your name.
+1. Replace the entire contents of the file with the following markup and save the file. Notice the following things about this markup:
 
-1. The `DefaultValue` attribute of the `Description` element has a placeholder. Replace it with `Room Validator`.
+    - The `Rule` element specifies the activation rule that should be evaluated for this contextual add-in. In this case, the specified rule evaluates to `true` for an `Appointment` item.
 
-1. The `DefaultValue` attribute of the `SupportUrl` element has a placeholder. Replace it with `https://localhost:3000` and save the file.
+    - The `ExtensionPoint` element defines the button on the ribbon that will open the add-in's task pane. In this case, the button will appear on the ribbon only for an appointment organizer.
 
     ```xml
-    ...
+    <?xml version="1.0" encoding="UTF-8"?>
+    <OfficeApp
+            xmlns="http://schemas.microsoft.com/office/appforoffice/1.1"
+            xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+            xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0"
+            xmlns:mailappor="http://schemas.microsoft.com/office/mailappversionoverrides/1.0"
+            xsi:type="MailApp">
+
+    <!-- Begin Basic Settings -->
+
+    <Id>bac018a4-efdb-494b-aa48-dd7c9eec25c4</Id>
+    <Version>1.0.0.0</Version>
     <ProviderName>Jane Doe</ProviderName>
     <DefaultLocale>en-US</DefaultLocale>
-    <!-- The display name of your add-in. Used on the store and various places of the Office UI such as the add-ins dialog. -->
     <DisplayName DefaultValue="My Outlook Add-in" />
-    <Description DefaultValue="Room Validator Add-in"/>
-
-    <!-- Icon for your add-in. Used on installation screens and the add-ins dialog. -->
+    <Description DefaultValue="Room Validator"/>
     <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png" />
     <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/hi-res-icon.png"/>
-
-    <!--If you plan to submit this add-in to the Office Store, uncomment the SupportUrl element below-->
     <SupportUrl DefaultValue="https://localhost:3000" />
-    ...
-    ```
 
-1. Replace the entire contents of the 'Rule` element wiht the following XML markup.
+    <Hosts>
+        <Host Name="Mailbox" />
+    </Hosts>
+    <Requirements>
+        <Sets>
+        <Set Name="Mailbox" MinVersion="1.1" />
+        </Sets>
+    </Requirements>
+    <FormSettings>
+        <Form xsi:type="ItemRead">
+        <DesktopSettings>
+            <SourceLocation DefaultValue="https://localhost:3000/index.html"/>
+            <RequestedHeight>250</RequestedHeight>
+        </DesktopSettings>
+        </Form>
+    </FormSettings>
 
-    ```xml
+    <Permissions>ReadWriteItem</Permissions>
+
+    <!-- Rule: ItemType = Appointment -->
     <Rule xsi:type="RuleCollection" Mode="Or">
-      <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Edit"/>
+        <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Edit"/>
     </Rule>
-    ```
+    
+    <DisableEntityHighlighting>false</DisableEntityHighlighting>
 
-1. Replace the entire contents of the `ExtensionPoint` element with the following XML markup. TODO: Change the type of extension point, since we want the button to be displayed on the ribbon in appointment compose mode. (By default, Yo Office creates a "Message Read" add-in.)
+    <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
+        <Requirements>
+        <bt:Sets DefaultMinVersion="1.3">
+            <bt:Set Name="Mailbox" />
+        </bt:Sets>
+        </Requirements>
+        <Hosts>
+        <Host xsi:type="MailHost">
 
-    ```xml
-    <!-- Appointment Organizer -->
-    <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
-       <!-- Use the default tab of the ExtensionPoint or create your own with <CustomTab id="myTab"> -->
-      <OfficeTab id="TabDefault">
-        <!-- Up to 6 Groups added per Tab -->
-        <Group id="apptComposeGroup">
-          <Label resid="groupLabel" />
-          <!-- Launch the add-in : task pane button -->
-          <Control xsi:type="Button" id="apptComposeOpenPaneButton">
-            <Label resid="apptComposeButtonLabel" />
-            <Supertip>
-              <Title resid="apptComposeSuperTipTitle" />
-              <Description resid="apptComposeSuperTipDescription" />
-            </Supertip>
-            <Icon>
-              <bt:Image size="16" resid="icon16" />
-              <bt:Image size="32" resid="icon32" />
-              <bt:Image size="80" resid="icon80" />
-            </Icon>
-            <Action xsi:type="ShowTaskpane">
-              <SourceLocation resid="apptComposeTaskPaneUrl" />
-            </Action>
-          </Control>
-          <!-- Go to http://aka.ms/ButtonCommands to learn how to add more Controls: ExecuteFunction and Menu -->
-        </Group>
-      </OfficeTab>
-    </ExtensionPoint>
-    ```
+            <DesktopFormFactor>
+                <FunctionFile resid="functionFile" />
 
-1. Replace the entire contents of the `Resources` element with the following XML markup.
+                <!-- Button for Appointment Organizer -->
+                <ExtensionPoint xsi:type="AppointmentOrganizerCommandSurface">
+                    <OfficeTab id="TabDefault">
+                        <Group id="apptComposeGroup">
+                            <Label resid="groupLabel" />
+                            <Control xsi:type="Button" id="apptComposeOpenPaneButton">
+                            <Label resid="apptComposeButtonLabel" />
+                            <Supertip>
+                                <Title resid="apptComposeSuperTipTitle" />
+                                <Description resid="apptComposeSuperTipDescription" />
+                            </Supertip>
+                            <Icon>
+                                <bt:Image size="16" resid="icon16" />
+                                <bt:Image size="32" resid="icon32" />
+                                <bt:Image size="80" resid="icon80" />
+                            </Icon>
+                            <Action xsi:type="ShowTaskpane">
+                                <SourceLocation resid="apptComposeTaskPaneUrl" />
+                            </Action>
+                            </Control>
+                        </Group>
+                    </OfficeTab>
+                </ExtensionPoint>
+            </DesktopFormFactor>
+        </Host>
+        </Hosts>
 
-    ```xml
-    <Resources>
-      <bt:Images>
-        <bt:Image id="icon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
-        <bt:Image id="icon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
-        <bt:Image id="icon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
-      </bt:Images>
-      <bt:Urls>
-        <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
-        <bt:Url id="apptComposeTaskPaneUrl" DefaultValue="https://localhost:3000/index.html"/>
-      </bt:Urls>
-      <bt:ShortStrings>
-        <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
-        <bt:String id="customTabLabel"  DefaultValue="My Add-in Tab"/>
-        <bt:String id="apptComposeButtonLabel" DefaultValue="Room Validator"/>
-        <bt:String id="apptComposeSuperTipTitle" DefaultValue="Validate the choice of meeting room"/>
-      </bt:ShortStrings>
-      <bt:LongStrings>
-        <bt:String id="apptComposeSuperTipDescription" DefaultValue="Opens a pane which validates that the selected meeting room is available at the chosen time and can accommodate the number of invited attendees."/>
-      </bt:LongStrings>
-    </Resources>
+        <Resources>
+        <bt:Images>
+            <bt:Image id="icon16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+            <bt:Image id="icon32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+            <bt:Image id="icon80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
+        </bt:Images>
+        <bt:Urls>
+            <bt:Url id="functionFile" DefaultValue="https://localhost:3000/function-file/function-file.html"/>
+            <bt:Url id="apptComposeTaskPaneUrl" DefaultValue="https://localhost:3000/index.html"/>
+        </bt:Urls>
+        <bt:ShortStrings>
+            <bt:String id="groupLabel" DefaultValue="My Add-in Group"/>
+            <bt:String id="customTabLabel"  DefaultValue="My Add-in Tab"/>
+            <bt:String id="apptComposeButtonLabel" DefaultValue="Room Validator"/>
+            <bt:String id="apptComposeSuperTipTitle" DefaultValue="Validate the choice of meeting room"/>
+        </bt:ShortStrings>
+        <bt:LongStrings>
+            <bt:String id="apptComposeSuperTipDescription" DefaultValue="Opens a pane which validates that the selected meeting room is available at the chosen time and can accommodate the number of invited attendees."/>
+        </bt:LongStrings>
+        </Resources>
+    </VersionOverrides>
+    </OfficeApp>
     ```
 
 ### Step 2: Customize the HTML
@@ -151,7 +179,7 @@ Open the file **index.html** to specify the HTML for the add-in. Replace the ent
 
 ### Step 3: Customize the CSS
 
-Open the file **app.css** to specify the custom styles for the add-in. Replace the entire contents with the following code and save the file.
+Open the file **app.css** to specify the custom styles for the add-in. Replace the entire contents of the file with the following code and save the file.
 
 ```css
 html, body {
