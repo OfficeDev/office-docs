@@ -46,7 +46,7 @@ The manifest file defines the add-in's settings and capabilities.
 
 1. Open the file **my-outlook-add-in-manifest.xml**.
 
-1. Replace the entire contents of the file with the following markup and save the file. Notice the following things about this markup:
+1. Replace the entire contents of the file with the following XML markup and save the file. Notice the following things about this markup:
 
     - The `Rule` element specifies the activation rule that should be evaluated for this contextual add-in. In this case, the specified rule evaluates to `true` for an `Appointment` item.
 
@@ -164,18 +164,67 @@ The manifest file defines the add-in's settings and capabilities.
 
 ### Step 2: Customize the HTML
 
-Open the file **index.html** to specify the HTML for the add-in. Replace the entire contents of the `main` tag with the following HTML markup, and save the file.
+1. Open the file **index.html** to specify the HTML for the add-in. 
 
-```html
-<div id="content-main">
-    <div class="padding">
-        <p>Choose the button below to set the color of the selected range to green.</p>
-        <br />
-        <h3>Try it out</h3>
-        <button class="ms-Button" id="set-color">Set color</button>
-    </div>
-</div>
-```
+1. Replace the entire contents of the `body` tag with the following HTML markup, and save the file.
+
+    ```html
+    <body class="ms-font-m ms-welcome">
+        <header class="ms-welcome__header ms-bgColor-themePrimary ms-u-fadeIn500">
+            <h1 class="ms-fontSize-xxl ms-fontWeight-regular ms-fontColor-white">Room Validator</h1>
+        </header>
+        <main id="app-body" class="ms-welcome__main" style="display: none;">
+
+            <div id="appointment-details">
+                <h2 class="ms-font-l ms-fontWeight-semibold ms-fontColor-neutralPrimaryAlt ms-u-slideUpIn20">Appointment details</h2>
+                <br />
+                <p class="ms-font-m ms-fontColor-neutralSecondaryAlt"><span class="ms-fontWeight-semibold">Total number of attendees:&#160;</span><label id="attendees-count"></label></p>
+                <p class="ms-font-m ms-fontColor-neutralSecondaryAlt"><span class="ms-fontWeight-semibold">Start time:&#160;</span><label id="start-time"></label></p>
+                <p class="ms-font-m ms-fontColor-neutralSecondaryAlt"><span class="ms-fontWeight-semibold">End time:&#160;</span><label id="end-time"></label></p>
+                <br />
+            </div>
+
+            <h2 class="ms-font-xl ms-fontWeight-semibold ms-fontColor-themeDark ms-u-slideUpIn20">Choose a room</h2>
+            <br />
+            <p class="ms-font-m">Choose a room from the list to see its capacity and availability. Press <b>Select</b> to specify the chosen room as the meeting location and see validation results.</p>
+            <br />
+            <select id="room" class="ms-font-m">
+                <option value="0n">-- Choose a room --</option>
+                <option value="2a">Conference Room Adams</option>
+                <option value="2p">Conference Room Carter</option>
+                <option value="4a">Conference Room Ford</option>
+                <option value="4p">Conference Room Johnson</option>
+                <option value="6a">Conference Room Lincoln</option>
+                <option value="6p">Conference Room Reagan</option>
+                <option value="8a">Conference Room Truman</option>
+                <option value="8p">Conference Room Wilson</option>
+            </select>
+            <ul class="ms-List ms-welcome__features ms-u-slideUpIn10">
+                <li class="ms-ListItem">
+                    <i class="ms-Icon ms-Icon--People"></i>
+                    <span class="ms-font-m ms-fontColor-neutralPrimary">Capacity:&#160;&#160;</span><label id="room-capacity"></label>
+                </li>
+                <li class="ms-ListItem">
+                        <i class="ms-Icon ms-Icon--DateTime"></i>
+                        <span class="ms-font-m ms-fontColor-neutralPrimary">Availability:&#160;&#160;</span><label id="room-availability"></label>
+                    </li>
+            </ul>
+            <br />
+            <button id="select" class="ms-Button ms-bgColor-themeDark">
+                <span class="ms-fontColor-themeDark ms-fontWeight-semibold">Select</span>
+            </button>
+            <br />
+
+            <h2 class="ms-font-xl ms-fontWeight-semibold ms-fontColor-themeDark ms-u-slideUpIn20">Validation results</h2>
+            <br />
+            <label id="result-message"></label>
+            <ul id="result-list" class="ms-List ms-welcome__features ms-u-slideUpIn10"></ul>
+        </main>
+
+        <script type="text/javascript" src="node_modules/jquery/dist/jquery.js"></script>
+        <script type="text/javascript" src="node_modules/office-ui-fabric-js/dist/js/fabric.js"></script>
+    </body>
+    ```
 
 ### Step 3: Customize the CSS
 
