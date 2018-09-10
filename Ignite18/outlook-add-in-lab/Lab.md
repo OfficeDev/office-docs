@@ -689,30 +689,32 @@ Now for the fun part -- it's time to try out the add-in that you've built.
 
     - Set **End time** to **October 1, 2018** (10/1/2018) at **10:00 am**.
 
-1. In the **Choose a room** section of the task pane, choose **Conference Room Carter** from the list and press **Select**. The meeting contains a total of 2 attendees (1 invitee + the organizer) and occurs in the AM hours of October 1.
+1. In the **Choose a room** section of the task pane, choose **Conference Room Carter** from the list and press **Select**. When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
 
+    - The meeting contains a total of 2 attendees (1 invitee + the organizer) and occurs in the AM hours.
     - The task pane shows that the capacity of this room is 2 and it's available only in the PM hours.
-    - When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
     - The **Validation results** section of the task pane conveys that room capacity is sufficient, but the room is unavailable at the specified time.
 
     ![A screenshot of an Outlook meeting invite with task pane](images/invite-one-recipient-carter.png)
 
-1. Add another recipient to the **To...** field of the meeting invite. The meeting now contains a total of 3 attendees (2 invitees + the organizer) and occurs in the AM hours of October 1.
+1. Add another recipient to the **To...** field of the meeting invite. 
 
+    - The meeting now contains a total of 3 attendees (2 invitees + the organizer) and occurs in the AM hours.
     - When you add the new recipient, the **Validation results** section of the task pane automatically updates to convey that room capacity is insufficient and the room is unavailable at the specified time.
 
     ![A screenshot of an Outlook meeting invite with task pane](images/invite-two-recipients-carter.png)
 
-1. In the **Choose a room** section of the task pane, choose **Conference Room Johnson** from the list and press **Select**. The meeting still contains a total of 3 attendees (2 invitees + the organizer) and occurs in the AM hours of October 1.
+1. In the **Choose a room** section of the task pane, choose **Conference Room Johnson** from the list and press **Select**. When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
 
+    - The meeting still contains a total of 3 attendees (2 invitees + the organizer) and occurs in the AM hours.
     - The task pane shows that the capacity of this room is 4 and it's available only in the PM hours.
-    - When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
     - The **Validation results** section of the task pane conveys that room capacity is sufficient, but that the room is unavailable at the specified time.
  
     ![A screenshot of an Outlook meeting invite with task pane](images/invite-two-recipients-johnson-am.png)
 
- 1. Change the **Start time** of the meeting to **2:00pm**. (The **End time** automatically adjusts to **3:00pm** since meeting duration is one hour.) The meeting still contains a total of 3 attendees (2 invitees + the organizer), but now occurs in the PM hours of October 1.
-
+ 1. Change the **Start time** of the meeting to **2:00pm**. (The **End time** automatically adjusts to **3:00pm** since meeting duration is one hour.) 
+ 
+    - The meeting still contains a total of 3 attendees (2 invitees + the organizer), but now occurs in the PM hours.
     - When you change the time of the meeting, the **Validation results** section of the task pane automatically updates to convey that room capacity is sufficient and the room is available.
 
     ![A screenshot of an Outlook meeting invite with task pane](images/invite-two-recipients-johnson-pm.png)
