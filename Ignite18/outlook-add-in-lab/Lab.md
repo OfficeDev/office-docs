@@ -38,13 +38,15 @@ Complete the following steps to create the add-in project by using the **Yeoman 
 
 ## Update the code
 
-At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Using Visual Studio Code, update the code as described in this section to customize the functionality of your add-in. By following these instructions, you'll build an event-driven add-in that can validate room availability and capacity as an organizer creates an appointment.
+At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Using Visual Studio Code, update the code as described in this section to customize the functionality of your add-in. By following these instructions, you'll build an event-driven Room Validator add-in that can validate room availability and capacity as an organizer creates an appointment.
 
 ![A screenshot of the Room Validator add-in with successful validation results](images/appt-add-in-success-carter.png)
 
 ### Step 1: Customize the manifest
 
-1. Open the file **my-outlook-add-in-manifest.xml**. This manifest file defines the add-in's settings and capabilities.
+An add-in's manifest file defines its settings and capabilities. In this step, you'll customize XML markup in the manifest file to specify metadata for the Room Validator add-in and add a button to the ribbon that an appointment organizer can use to launch the add-in task pane.
+
+1. Open the file **my-outlook-add-in-manifest.xml**. 
 
 1. Replace the entire contents of the file with the following XML markup, and save the file. Notice the following things about this markup:
 
@@ -162,7 +164,9 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ### Step 2: Customize the HTML
 
-1. Open the file **index.html** to specify the HTML for the add-in. 
+The HTML markup in file **index.html** renders the user interface (UI) of the add-in task pane. In this step, you'll customize the HTML to create the task pane UI of the Room Validator add-in.
+
+1. Open the file **index.html**. 
 
 1. Replace the entire contents of the `body` tag with the following HTML markup, and save the file.
 
@@ -226,7 +230,9 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ### Step 3: Customize the CSS
 
-1. Open the file **app.css** to specify the custom styles for the add-in.
+The CSS code in file **app.css** specifies the custom styles that are used to render the task pane UI. In this step, you'll customize the CSS to specify the styles that are used by **index.html** to render the task pane UI of the Room Validator add-in.
+
+1. Open the file **app.css**.
 
 1. Replace the entire contents of the file with the following code, and save the file.
 
@@ -314,7 +320,9 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ### Step 4: Customize the script
 
-1. Open the file **src\index.js** to specify the script for the add-in. 
+The contents of file **src\index.js** specifies the script for the add-in. In this step, you'll specify code that enables the Room Validator add-in to validate room selection when an appointment organizer changes attendees or appointment time.
+
+1. Open the file **src\index.js**. 
 
 1. Replace the entire contents of the file with the following code, and save the file.
 
@@ -597,9 +605,7 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ## Prepare to test your add-in
 
-Now that you're finished coding, let's 
-
-Before you can test your add-in in Outlook, you must complete the tasks described in this section. 
+Now that the code changes are complete, you're *almost* ready to test your Room Validator add-in in Outlook. But first, prepare to test your add-in by completing the tasks described in this section.
 
 ### Start the web server
 
@@ -660,8 +666,6 @@ Now that your add-in application is running on a local web server and your works
     ![Outlook 2016 Choose File to Upload dialog window](images/my-add-ins-upload-choose-file.png)
 
 ## Try it out
-
-Now 
 
 1. Once you've sideloaded the manifest, open an appointment in a new window in Outlook.
 
