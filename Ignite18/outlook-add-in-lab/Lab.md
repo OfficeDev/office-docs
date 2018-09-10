@@ -40,13 +40,11 @@ Complete the following steps to create the add-in project by using the **Yeoman 
 
 At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Update the code as described in this section to customize the functionality of your add-in.
 
-### Step 1: Customize the manifest file
+### Step 1: Customize the manifest
 
-The manifest file defines the add-in's settings and capabilities. 
+1. Open the file **my-outlook-add-in-manifest.xml**. This manifest file defines the add-in's settings and capabilities.
 
-1. Open the file **my-outlook-add-in-manifest.xml**.
-
-1. Replace the entire contents of the file with the following XML markup and save the file. Notice the following things about this markup:
+1. Replace the entire contents of the file with the following XML markup, and save the file. Notice the following things about this markup:
 
     - The `Rule` element specifies the activation rule that should be evaluated for this contextual add-in. In this case, the specified rule evaluates to `true` for an `Appointment` item.
 
@@ -228,94 +226,91 @@ The manifest file defines the add-in's settings and capabilities.
 
 ### Step 3: Customize the CSS
 
-Open the file **app.css** to specify the custom styles for the add-in. Replace the entire contents of the file with the following code and save the file.
+1. Open the file **app.css** to specify the custom styles for the add-in.
 
-```css
-html, body {
-    width: 100%;
-    height: 100%;
-    margin: 0;
-    padding: 0;
-}
+1. Replace the entire contents of the file with the following code, and save the file.
 
-ul, p, h1, h2, h3, h4, h5, h6 {
-    margin: 0;
-    padding: 0;
-}
-
-.ms-welcome {
-    position: relative;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    min-height: 800px;
-    min-width: 150px;
-    overflow: auto;
-    overflow-x: hidden;
-}
-
-.ms-welcome__header {
-    min-height: 40px;
-    padding: 10px;
-    padding-bottom: 20px;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-align-items: center;
-    align-items: center;
-    -webkit-justify-content: flex-end;
-    justify-content: flex-end;
-}
-
-.ms-welcome__header > h1 {
-    margin-top: 10px;
-    text-align: center;
-}
-
-.ms-welcome__main {
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    -webkit-flex-wrap: nowrap;
-    flex-wrap: nowrap;
-    -webkit-align-items: center;
-    align-items: left;
-    -webkit-flex: 1 0 0;
-    flex: 1 0 0;
-    padding: 20px 20px;
-}
-
-.ms-welcome__main > h2 {
-    width: 100%;
-    text-align: left;
-}
-
-.ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
-    font-size: 14pt;
-}
-
-.ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
-    margin-right: 10px;
-}
-
-@media (min-width: 0) and (max-width: 350px) {
-    .ms-welcome__features {
+    ```css
+    html, body {
         width: 100%;
+        height: 100%;
+        margin: 0;
+        padding: 0;
     }
-}
-```
 
-Update the following styles:
-- .ms-welcome
-- .ms-welcome__header
-- .ms-welcome__header > h1
+    ul, p, h1, h2, h3, h4, h5, h6 {
+        margin: 0;
+        padding: 0;
+    }
+
+    .ms-welcome {
+        position: relative;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        min-height: 800px;
+        min-width: 180px;
+        overflow: auto;
+        overflow-x: hidden;
+    }
+
+    .ms-welcome__header {
+        min-height: 30px;
+        padding: 0px;
+        padding-bottom: 10px;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-align-items: center;
+        align-items: center;
+        -webkit-justify-content: flex-end;
+        justify-content: flex-end;
+    }
+
+    .ms-welcome__header > h1 {
+        margin-top: 10px;
+        text-align: center;
+    }
+
+    .ms-welcome__main {
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-direction: column;
+        flex-direction: column;
+        -webkit-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+        -webkit-align-items: center;
+        align-items: left;
+        -webkit-flex: 1 0 0;
+        flex: 1 0 0;
+        padding: 20px 20px;
+    }
+
+    .ms-welcome__main > h2 {
+        width: 100%;
+        text-align: left;
+    }
+
+    .ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
+        font-size: 14pt;
+    }
+
+    .ms-welcome__features.ms-List .ms-ListItem > .ms-Icon {
+        margin-right: 10px;
+    }
+
+    @media (min-width: 0) and (max-width: 350px) {
+        .ms-welcome__features {
+            width: 100%;
+        }
+    }
+    ```
 
 ### Step 4: Customize the script
 
