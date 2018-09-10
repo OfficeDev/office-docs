@@ -40,11 +40,11 @@ Complete the following steps to create the add-in project by using the **Yeoman 
 
 At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Update the code as described in this section to customize the functionality of your add-in.
 
-### Step 1: Customize the Manifest
+### Step 1: Customize the manifest file
 
-The add-in manifest define's the add-in's settings and capabilities. 
+The add-in's manifest file define's the add-in's settings and capabilities. 
 
-1. Open the file **my-outlook-add-in-manifest.xml** file.
+1. Open the **my-outlook-add-in-manifest.xml** file.
 
 1. Replace the entire contents of the file with the following markup and save the file. Notice the following things about this markup:
 
@@ -96,7 +96,7 @@ The add-in manifest define's the add-in's settings and capabilities.
     <Rule xsi:type="RuleCollection" Mode="Or">
         <Rule xsi:type="ItemIs" ItemType="Appointment" FormType="Edit"/>
     </Rule>
-    
+
     <DisableEntityHighlighting>false</DisableEntityHighlighting>
 
     <VersionOverrides xmlns="http://schemas.microsoft.com/office/mailappversionoverrides" xsi:type="VersionOverridesV1_0">
