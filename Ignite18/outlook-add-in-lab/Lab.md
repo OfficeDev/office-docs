@@ -704,7 +704,7 @@ Now for the fun part -- it's time to try out the add-in that you've built.
 
     ![A screenshot of an Outlook meeting invite with task pane](images/invite-two-recipients-carter.png)
 
-1. In the **Choose a room** section of the task pane, choose **Conference Room Johnson** from the list and press **Select**. When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
+1. Let's find a room that has capacity for at least 3 people. In the **Choose a room** section of the task pane, choose **Conference Room Johnson** from the list and press **Select**. When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
 
     - The task pane shows that the capacity of the selected room is 4 and it's available only in the PM hours.
     - The meeting still contains a total of 3 attendees (2 invitees + the organizer) and occurs in the AM hours.
