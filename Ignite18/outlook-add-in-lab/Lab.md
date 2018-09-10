@@ -692,7 +692,7 @@ Now for the fun part -- it's time to try out the add-in that you've built.
 1. In the **Choose a room** section of the task pane, choose **Conference Room Carter** from the list and press **Select**. When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
 
     - The meeting contains a total of 2 attendees (1 invitee + the organizer) and occurs in the AM hours.
-    - The task pane shows that the capacity of this room is 2 and it's available only in the PM hours.
+    - The task pane shows that the capacity of the selected room is 2 and it's available only in the PM hours.
     - The **Validation results** section of the task pane conveys that room capacity is sufficient, but the room is unavailable at the specified time.
 
     ![A screenshot of an Outlook meeting invite with task pane](images/invite-one-recipient-carter.png)
@@ -707,7 +707,7 @@ Now for the fun part -- it's time to try out the add-in that you've built.
 1. In the **Choose a room** section of the task pane, choose **Conference Room Johnson** from the list and press **Select**. When you press **Select**, the conference room is specified in the appointment's **Location** field and the add-in determines whether the selected room is available and has capacity for the number of attendees specified for the meeting. 
 
     - The meeting still contains a total of 3 attendees (2 invitees + the organizer) and occurs in the AM hours.
-    - The task pane shows that the capacity of this room is 4 and it's available only in the PM hours.
+    - The task pane shows that the capacity of the selected room is 4 and it's available only in the PM hours.
     - The **Validation results** section of the task pane conveys that room capacity is sufficient, but that the room is unavailable at the specified time.
  
     ![A screenshot of an Outlook meeting invite with task pane](images/invite-two-recipients-johnson-am.png)
