@@ -38,7 +38,9 @@ Complete the following steps to create the add-in project by using the **Yeoman 
 
 ## Update the code
 
-At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Update the code as described in this section to customize the functionality of your add-in.
+At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Using Visual Studio Code, update the code as described in this section to customize the functionality of your add-in. By following these instructions, you'll build an event-driven add-in that can validate room availabilty and capacity as an organizer creates an appointment.
+
+![A screenshot of the Room Validator add-in with successful validation results](images/add-in-start.png)
 
 ### Step 1: Customize the manifest
 
@@ -595,6 +597,8 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ## Prepare to test your add-in
 
+Now that you're finished coding, let's 
+
 Before you can test your add-in in Outlook, you must complete the tasks described in this section. 
 
 ### Start the web server
@@ -656,6 +660,8 @@ Now that your add-in application is running on a local web server and your works
     ![Outlook 2016 Choose File to Upload dialog window](images/my-add-ins-upload-choose-file.png)
 
 ## Try it out
+
+Now 
 
 1. Once you've sideloaded the manifest, open an appointment in a new window in Outlook.
 
