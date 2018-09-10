@@ -46,6 +46,11 @@ next image:
 
 ![A screenshot of the Room Validator add-in with successful validation results](images/appt-with-add-in-carter-success.png)
 
+next image:
+
+![A screenshot of the Room Validator add-in with successful validation results](images/appt-add-in-carter-success.png)
+
+
 ### Step 1: Customize the manifest
 
 1. Open the file **my-outlook-add-in-manifest.xml**. This manifest file defines the add-in's settings and capabilities.
