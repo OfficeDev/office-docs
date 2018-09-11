@@ -40,7 +40,7 @@ Complete the following steps to create the add-in project by using the **Yeoman 
 
 ## Update the code
 
-At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Next, update the code as described in this section to customize the functionality of your Room Validator add-in.
+At this point, the **Yeoman generator for Office Add-ins** has created a very basic add-in project that you can use as a starting point for building your Outlook add-in. Next, update the code as described in this section to customize the functionality of the add-in.
 
 ### Step 1: Open add-in project folder in Visual Studio Code
 
