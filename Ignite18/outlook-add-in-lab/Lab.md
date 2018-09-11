@@ -42,11 +42,21 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ![A screenshot of the Room Validator add-in with successful validation results](images/appt-add-in-success-carter.png)
 
-### Step 1: Customize the manifest
+### Step 1: Open root project folder in Visual Studio Code
+
+In this lab, you'll use Visual Studio code as your code editor. Let's get started by using Visual Studio to open the folder that contains the add-in source code.
+
+1. Launch Visual Studio Code.
+
+1. On the **Welcome** tab in Visual Studio code, choose **Open folder...**.
+
+1. In the **Open Folder** dialog window, navigate to the directory where you created the add-in project (as described in [Create the add-in project](#create-the-add-in-project)), and then press `Select Folder`. 
+
+### Step 2: Customize the manifest
 
 An add-in's manifest file defines its settings and capabilities. In this step, you'll customize XML markup in the manifest file to specify metadata for the Room Validator add-in and add a button to the ribbon that an appointment organizer can use to launch the add-in task pane.
 
-1. Open the file **my-outlook-add-in-manifest.xml**. 
+1. In Visual Studio Code, open the file **my-outlook-add-in-manifest.xml**. 
 
 1. Replace the entire contents of the file with the following XML markup, and save the file. Notice the following things about this markup:
 
@@ -162,11 +172,11 @@ An add-in's manifest file defines its settings and capabilities. In this step, y
     </OfficeApp>
     ```
 
-### Step 2: Customize the HTML
+### Step 3: Customize the HTML
 
 The HTML markup in file **index.html** renders the user interface (UI) of the add-in task pane. In this step, you'll customize the HTML to create the task pane UI of the Room Validator add-in.
 
-1. Open the file **index.html**. 
+1. In Visual Studio Code, open the file **index.html**. 
 
 1. Replace the entire contents of the `body` tag with the following HTML markup, and save the file.
 
@@ -228,11 +238,11 @@ The HTML markup in file **index.html** renders the user interface (UI) of the ad
     </body>
     ```
 
-### Step 3: Customize the CSS
+### Step 4: Customize the CSS
 
 The CSS code in file **app.css** specifies the custom styles that are used to render the task pane UI. In this step, you'll customize the CSS to specify the styles that are used by **index.html** to render the task pane UI of the Room Validator add-in.
 
-1. Open the file **app.css**.
+1. In Visual Studio Code, open the file **app.css**.
 
 1. Replace the entire contents of the file with the following code, and save the file.
 
@@ -318,11 +328,11 @@ The CSS code in file **app.css** specifies the custom styles that are used to re
     }
     ```
 
-### Step 4: Customize the script
+### Step 5: Customize the script
 
 The contents of file **src\index.js** specifies the script for the add-in. In this step, you'll specify code that enables the Room Validator add-in to validate room selection when an appointment organizer changes attendees or appointment time.
 
-1. Open the file **src\index.js**. 
+1. In Visual Studio Code, open the file **src\index.js**. 
 
 1. Replace the entire contents of the file with the following code, and save the file.
 
@@ -633,7 +643,7 @@ Office clients require that add-ins come from a trusted and secure location. Bef
 
     ![Certificate dialog window](images/install-cert.png)
 
-1. In the **Certificate Import Wizard** dialog window, choose **Local Machine** and press **Next**.
+1. In the **Certificate Import Wizard** dialog window, choose **Local Machine** and press **Next**. If prompted by the User Account control dialog window, answer **Yes**.
 
     ![Certificate Import Wizard dialog window](images/cert-import.png)
 
