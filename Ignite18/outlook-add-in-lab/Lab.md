@@ -44,7 +44,7 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ### Step 1: Open add-in project folder in Visual Studio Code
 
-In this lab, you'll use Visual Studio code as your code editor. Let's get started by using Visual Studio to open the folder that contains the add-in source code.
+In this lab, you'll use Visual Studio Code as your code editor. Let's get started by using Visual Studio to open the folder that contains the add-in source code.
 
 1. Launch Visual Studio Code.
 
@@ -612,6 +612,8 @@ The contents of file **src\index.js** specifies the script for the add-in. In th
             });
     }
     ```
+
+1. Save the changes you've made to **index.js**. 
 
 ## Prepare to test your add-in
 
