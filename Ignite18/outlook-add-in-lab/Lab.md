@@ -42,7 +42,7 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ![A screenshot of the Room Validator add-in with successful validation results](images/appt-add-in-success-carter.png)
 
-### Step 1: Open root project folder in Visual Studio Code
+### Step 1: Open add-in project folder in Visual Studio Code
 
 In this lab, you'll use Visual Studio code as your code editor. Let's get started by using Visual Studio to open the folder that contains the add-in source code.
 
