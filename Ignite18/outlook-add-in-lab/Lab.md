@@ -60,7 +60,7 @@ An add-in's manifest file defines its settings and capabilities. In this step, y
 
 1. Replace the entire contents of the file with the following XML markup, and save the file. Notice the following things about this markup:
 
-    - The `Rule` element specifies the activation rule that should be evaluated for this contextual add-in. In this case, the specified rule evaluates to `true` for an `Appointment` item.
+    - The `Rule` element specifies the activation rule that should be evaluated for this add-in. In this case, the specified rule evaluates to `true` for an `Appointment` item.
 
     - The `ExtensionPoint` element defines the button on the ribbon that will open the add-in's task pane. In this case, the button will appear on the ribbon only for an appointment organizer.
 
