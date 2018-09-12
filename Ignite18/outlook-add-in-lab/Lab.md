@@ -46,7 +46,7 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 In this lab, you'll use Visual Studio Code as your code editor. At the same command prompt that you just used to [create the add-in project](#create-the-add-in-project), run the following command to open Visual Studio Code:
 
-    `code .`
+`code .`
 
 **Note**: In the **Explorer** pane of Visual Studio Code, expand the **My Outlook Add-in** folder to show the files for your add-in project.
 
