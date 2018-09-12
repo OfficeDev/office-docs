@@ -681,13 +681,13 @@ Now for the fun part -- it's time to try out the add-in that you've built. Use t
 
 1. In Calendar view, press **New Appointment** to create a new appointment.
 
-1. In the ribbon of the appointment window, choose **Invite Attendees** to add the **To...** recipients field to the appointment.
-
-    ![A screenshot of the Outlook ribbon with the Invite Attendees button highlighted](images/ribbon-invite-attendees.png)
-
 1. In the ribbon of the appointment window, choose **Room Validator** to open the Room Validator task pane.
 
     ![A screenshot of the Outlook ribbon with the Room Validator button highlighted](images/ribbon-room-validator.png)
+
+1. In the ribbon of the appointment window, choose **Invite Attendees** to add the **To...** recipients field to the appointment.
+
+    ![A screenshot of the Outlook ribbon with the Invite Attendees button highlighted](images/ribbon-invite-attendees.png)
 
 1. Specify meeting information as follows:
     
