@@ -429,9 +429,8 @@ The content of file **src\index.js** specifies the script for the add-in. In thi
                             console.log(asyncResult.error.message);
                         }
                         else {
-                            // add 1 to the number of required attendees, to account for the organizer
                             var requiredAttendees = asyncResult.value;
-                            attendeeCount = requiredAttendees.length + 1;
+                            attendeeCount = requiredAttendees.length;
                             $('#attendees-count').html(attendeeCount);
 
                             Office.context.mailbox.item.optionalAttendees.getAsync(
