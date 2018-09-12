@@ -50,7 +50,7 @@ In this lab, you'll use Visual Studio Code as your code editor. At the same comm
 code .
 ```
 
-**Note**: In the **Explorer** pane of Visual Studio Code, expand the **My Outlook Add-in** folder to show the files for your add-in project.
+In the **Explorer** pane of Visual Studio Code, expand the **My Outlook Add-in** folder to show the files for your add-in project.
 
 ### Step 2: Customize the manifest
 
@@ -330,7 +330,7 @@ The CSS code in file **app.css** specifies the custom styles that are used to re
 
 ### Step 5: Customize the script
 
-The contents of file **src\index.js** specifies the script for the add-in. In this step, you'll specify code that enables the Room Validator add-in to validate room selection when an appointment organizer changes attendees or appointment time.
+The content of file **src\index.js** specifies the script for the add-in. In this step, you'll specify code that enables the Room Validator add-in to validate room selection when an appointment organizer changes attendees or appointment time.
 
 1. In Visual Studio Code, open the file **src\index.js**. 
 
@@ -496,7 +496,7 @@ The contents of file **src\index.js** specifies the script for the add-in. In th
 
         function getRoomCapacity() {
             // Note: For simplicity, room capacity logic is hardcoded in this example code.
-            // In a real-world implemention, room capacity data would likely be retrieved from a web service or database.
+            // In a real-world implementation, room capacity data would likely be retrieved from a web service or database.
 
             // from value of selected list item, take first character (number = room capacity)
             var roomCapacity = $('#room').val().substring(0, 1);
@@ -511,7 +511,7 @@ The contents of file **src\index.js** specifies the script for the add-in. In th
 
         function getRoomAvailabilityPeriod() {
             // Note: For simplicity, room availability logic is hardcoded in this example code.
-            // In a real-world implemention, room availability data would likely be retrieved from a web service or database.
+            // In a real-world implementation, room availability data would likely be retrieved from a web service or database.
 
             // from value of selected DDL item, take second character
             //   a = available in the AM
@@ -528,7 +528,7 @@ The contents of file **src\index.js** specifies the script for the add-in. In th
 
         function getRoomAvailability() {
             // Note: For simplicity, room availability logic is hardcoded in this example code.
-            // In a real-world implemention, room availability data would likely be retrieved from a web service or database.
+            // In a real-world implementation, room availability data would likely be retrieved from a web service or database.
             
             // from value of selected DDL item, take second character 
             //   a = available in the AM
@@ -729,4 +729,4 @@ Now for the fun part -- it's time to try out the add-in that you've built. Use t
 
 ## Congratulations!
 
-Congratulations, you've successfully created an Outlook add-in! To learn more about creating Outlook add-ins, checkout the Outlook add-ins developer documentation at [https://aka.ms/outlook-add-ins-docs](https://aka.ms/outlook-add-ins-docs).
+Congratulations, you've successfully created an Outlook add-in! To learn more about creating Outlook add-ins, check out the Outlook add-ins developer documentation at [https://aka.ms/outlook-add-ins-docs](https://aka.ms/outlook-add-ins-docs).
