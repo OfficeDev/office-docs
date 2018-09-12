@@ -206,7 +206,7 @@ The HTML markup in file **index.html** renders the user interface (UI) of the ad
 
         <body class="ms-font-m ms-welcome">
             <header class="ms-welcome__header ms-bgColor-themePrimary ms-u-fadeIn500">
-                <h1 class="ms-fontSize-xxl ms-fontWeight-regular ms-fontColor-white">Lab Guide Test 2</h1>
+                <h1 class="ms-fontSize-xxl ms-fontWeight-regular ms-fontColor-white">My Outlook Add-in</h1>
             </header>
             <main id="app-body" class="ms-welcome__main" style="display: none;">
                 <div id="appointment-details">
