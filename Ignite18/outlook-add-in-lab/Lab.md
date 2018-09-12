@@ -226,7 +226,6 @@ The HTML markup in file **index.html** renders the user interface (UI) of the ad
     ```html
     <!DOCTYPE html>
     <html>
-
         <head>
             <meta charset="UTF-8" />
             <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
@@ -474,9 +473,8 @@ The content of file **src\index.js** specifies the script for the add-in. In thi
                             console.log(asyncResult.error.message);
                         }
                         else {
-                            // add 1 to the number of required attendees, to account for the organizer
                             var requiredAttendees = asyncResult.value;
-                            attendeeCount = requiredAttendees.length + 1;
+                            attendeeCount = requiredAttendees.length;
                             $('#attendees-count').html(attendeeCount);
 
                             Office.context.mailbox.item.optionalAttendees.getAsync(
