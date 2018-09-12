@@ -2,7 +2,7 @@
 
 Outlook add-ins are web applications built using standard web technologies and loaded within the Outlook client. In this lab, you'll use Outlook JavaScript APIs to build an event-driven add-in that can validate room availability and capacity as an organizer creates an appointment.
 
-![A screenshot of the Room Validator add-in with successful validation results](images/appt-add-in-success-carter.png)
+![A screenshot of an Outlook meeting invitation with task pane](images/invite-two-recipients-johnson-pm.png)
 
 In this lab:
 
@@ -44,13 +44,13 @@ At this point, the **Yeoman generator for Office Add-ins** has created a very ba
 
 ### Step 1: Open add-in project folder in Visual Studio Code
 
-In this lab, you'll use Visual Studio Code as your code editor. Let's get started by using Visual Studio to open the folder that contains the add-in source code.
+In this lab, you'll use Visual Studio Code as your code editor. At the same command prompt that you just used to [create the add-in project](#create-the-add-in-project), run the following command to open Visual Studio Code:
 
-1. Launch Visual Studio Code.
+    ```
+    code .
+    ```
 
-1. On the **Welcome** tab in Visual Studio code, choose **Open folder...**.
-
-1. In the **Open Folder** dialog window, navigate to the directory where you created the add-in project (as described in [Create the add-in project](#create-the-add-in-project)), and then press `Select Folder`. 
+**Note**: In the **Explorer** pane of Visual Studio Code, expand the **My Outlook Add-in** folder to show the files for your add-in project.
 
 ### Step 2: Customize the manifest
 
@@ -359,19 +359,15 @@ The contents of file **src\index.js** specifies the script for the add-in. In th
                 getAppointmentTime();
                 getNumberOfAttendees();
 
-                // TODO-1
-                // register event handler for the Office.EventType.AppointmentTimeChanged event
+                // TODO-1: register event handler for the Office.EventType.AppointmentTimeChanged event
                 
-                // TODO-2
-                // register event handler for the Office.EventType.RecipientsChanged event
+                // TODO-2: register event handler for the Office.EventType.RecipientsChanged event
             });
         };
 
-        // TODO-3
-        // processApptTimeChange()
+        // TODO-3: processApptTimeChange()
 
-        // TODO-4
-        // processRecipientChange
+        // TODO-4: processRecipientChange()
 
         function getAppointmentTime() {
             // get start time and end time of the appointment
@@ -685,11 +681,11 @@ Now for the fun part -- it's time to try out the add-in that you've built. Use t
 
 1. In Calendar view, press **New Appointment** to create a new appointment.
 
-1. In the ribbon of the **Untitled - Appointment** window, choose **Invite Attendees** to add the **To...** recipients field to the appointment.
+1. In the ribbon of the appointment window, choose **Invite Attendees** to add the **To...** recipients field to the appointment.
 
     ![A screenshot of the Outlook ribbon with the Invite Attendees button highlighted](images/ribbon-invite-attendees.png)
 
-1. In the ribbon of the **Untitled - Appointment** window, choose **Room Validator** to open the Room Validator task pane.
+1. In the ribbon of the appointment window, choose **Room Validator** to open the Room Validator task pane.
 
     ![A screenshot of the Outlook ribbon with the Room Validator button highlighted](images/ribbon-room-validator.png)
 
