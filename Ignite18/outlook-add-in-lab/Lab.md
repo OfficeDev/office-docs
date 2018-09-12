@@ -669,7 +669,7 @@ Now that your add-in application is running on a local web server and your works
 
     ![Outlook 2016 My add-ins add custom add-in from file](images/my-add-ins-add-from-file.png)
 
-1. In the **Choose File to Upload** dialog window, navigate to your project folder, select your add-in project's manifest file `my-outlook-add-in-manifest.xml`, and press **Open**. Accept all prompts during the installation.
+1. In the **Choose File to Upload** dialog window, navigate to your project folder, select your add-in project's manifest file `my-outlook-add-in-manifest.xml`, and press **Open**. Then in the **Warning** dialog window, press **Install**.
 
     ![Outlook 2016 Choose File to Upload dialog window](images/my-add-ins-upload-choose-file.png)
 
