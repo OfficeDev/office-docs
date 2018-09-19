@@ -11,7 +11,7 @@ This lab is done with Script Lab. Script Lab is an add-in for developing and tes
 You'll prepare Script Lab to code and run your sample. We'll link the correct libraries, write an HTML front-end, and code the program logic in TypeScript. 
 Open a blank workbook in Excel to begin. 
 
-Go to the **Script Lab** ribbon tab and select **Code**. Once Script Lab load the pane, select the **+** icon to create a new add-in snippet. That opens a task pane like this one: 
+Go to the **Script Lab** ribbon tab and select **Code**. Once Script Lab load the pane, select the `+` icon to create a new add-in snippet. That opens a task pane like this one: 
  
 ![The "Script" tab of Script Lab.](images/image2.png)
 
