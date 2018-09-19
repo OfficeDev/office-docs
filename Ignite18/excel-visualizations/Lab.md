@@ -234,6 +234,7 @@ Follow the steps listed in the HTML. Remember to select the chart to see the fin
 ![The chart created by the lab.](images/5_Add_data_label.png)
 
 ## Next steps
-Congratulations! You’ve completed the lab! If you want to learn more about new comming APIs, please move to our [Github](https://github.com/OfficeDev/office-js-docs/tree/ExcelJs_OpenSpec) for details.
+Congratulations! You’ve completed the lab! Please explore the other samples in Script Lab. Click on the menu button and go to **Samples** for more ways to use the power of Excel in your add-ins. 
 
-You should also explore the other samples in Script Lab. Click on the menu button and go to **Samples** for more ways to use the power of Excel in your add-ins. 
+If you want to learn more about new comming APIs, please view our [Github](https://github.com/OfficeDev/office-js-docs/tree/ExcelJs_OpenSpec) for details.
+
