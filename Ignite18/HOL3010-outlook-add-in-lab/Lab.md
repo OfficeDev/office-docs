@@ -16,7 +16,6 @@ In this lab:
 ## Lab guidance
 
 **Tip #1**: At the top of this pane are two tabs: **Instructions** and **Resources**. 
-
     - The **Resources** tab contains the two sets of credentials that you'll need for this lab:  
         - The Windows 10 login credentials that you'll use to login to the VM at the startup screen.
         - The O365 user credentials that you'll use to login to Outlook.
