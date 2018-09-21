@@ -42,12 +42,12 @@ Let's call `=CONTOSO.ADD42()`. This function adds 42 to any two numbers you prov
 _Note that when a call is made in Excel Online, you may see `#GETTING_DATA` appear in a cell. Once a value is returned, this notification should disappear._
 
 ## Exercise 2: Create your own custom function
-What if you wanted a function which could fetch and display the price of Microsoft stock that day? Custom functions are designed so you can easily make requests for data from the web asynchronously.
+What if you wanted a function which could fetch and display the current price of Microsoft stock? Custom functions are designed so you can easily make requests for data from the web asynchronously.
   
-You’ll be adding a new function, called `=CONTOSO.STOCKPRICE`, to the **customfunctions.js** file.  The function will take in the name of a stock ticker, such as "MSFT", and return the price of that stock. You'll leverage the IEX Trading API, which is free and does not require authentication. 
+You’ll be adding a new function, called `=CONTOSO.STOCKPRICE`, to the **./src/customfunctions.js** file.  The function will take in the name of a stock ticker, such as "MSFT", and return the price of that stock. You'll leverage the IEX Trading API, which is free and does not require authentication.
 
-1. Open Visual Studio Code, and open up the `stock-ticker` folder.
-1. Copy and paste the function below and add it to **customfunctions.js**. 
+1. Open Visual Studio Code, and open up the `Stock Ticker` folder.
+1. Copy and paste the function below and add it to **./src/customfunctions.js**. 
     
     ```javascript
     function STOCKPRICE(ticker) {
@@ -69,7 +69,7 @@ You’ll be adding a new function, called `=CONTOSO.STOCKPRICE`, to the **custom
     }
     ```
     
-    You'll notice in this code that your asynchronous function returns a JavaScript Promise with the data from the IEX Trading API.         Asynchronous custom functions require you to either return a new Promise or use JavaScript's async/await syntax. 
+    You'll notice in this code that your asynchronous function returns a JavaScript Promise with the data from the IEX Trading API. Asynchronous custom functions require you to either return a new Promise or use JavaScript's async/await syntax. 
 
 2. In order for Excel to properly run this function, you must also add some metadata to the **./config/customfunctions.json** file.
 
@@ -104,7 +104,7 @@ The previous function returned the stock price for Microsoft at a particular mom
 
 To do this, you’ll create a new function, `=CONTOSO.STOCKPRICESTREAM`. It makes a request for updated data every 1000 milliseconds. 
 
-1. Copy and paste the code below into **customfunctions.js**.
+1. Copy and paste the code below into **./src/customfunctions.js**.
     
     ```javascript
     function STOCKPRICESTREAM(ticker, caller) {
