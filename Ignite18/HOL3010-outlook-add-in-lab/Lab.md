@@ -282,7 +282,7 @@ The HTML markup in file **index.html** renders the user interface (UI) of the ad
                     <li class="ms-ListItem">
                             <i class="ms-Icon ms-Icon--DateTime"></i>
                             <span class="ms-font-m ms-fontColor-neutralPrimary">Availability:&#160;&#160;</span><label id="room-availability"></label>
-                        </li>
+                    </li>
                 </ul>
                 <br />
                 <button id="select" class="ms-Button ms-bgColor-themeDark">
