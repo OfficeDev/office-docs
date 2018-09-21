@@ -15,7 +15,7 @@ In this lab:
 
 ## Lab guidance
 
-**Tip #1** 
+**Tip #1**  
 At the top of this pane are two tabs: **Instructions** and **Resources**. 
 
 - The **Resources** tab contains the two sets of credentials that you'll need for this lab:  
@@ -24,10 +24,10 @@ At the top of this pane are two tabs: **Instructions** and **Resources**.
 
 - The **Instructions** tab within this pane contain these lab instructions. Switch back to the **Instructions** tab after you've acquired the necessary login credentials from the **Resources** tab.
 
-**Tip #2** 
+**Tip #2**  
 This pane is resizeable. For an optimimal viewing experience, you may wish to resize this pane to be wider than its default width.
 
-**Tip #3** 
+**Tip #3**  
 To copy/paste code from a code block into VS Code or the command prompt, click the **[T]** button that appears next to the code block. *Avoid* clicking anywhere within a code block, as doing so will also copy/paste the code into the active application.
 
 ## Open Outlook and sign in
