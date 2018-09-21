@@ -587,7 +587,7 @@ The content of file **src\index.js** specifies the script for the add-in. In thi
 
 1. With the entire `TODO-1` comment line selected in Visual Studio code, press the **[T]** button next to the following JavaScript code block in this Lab Guide to automatically copy/paste the code into **src\index.js** (thereby replacing the `TODO-1` comment line). This code registers an event handler for the `Office.EventType.AppointmentTimeChanged` event. It specifies that when the appointment time changes, the `processApptTimeChange` function will run.
 
-    ```
+    ```javascript
     // register event handler for the Office.EventType.AppointmentTimeChanged event
     Office.context.mailbox.item.addHandlerAsync(Office.EventType.AppointmentTimeChanged, 
         processApptTimeChange,
