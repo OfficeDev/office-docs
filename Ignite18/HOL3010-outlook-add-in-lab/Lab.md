@@ -6,14 +6,14 @@ Outlook add-ins are web applications built using standard web technologies and l
 
 In this lab:
 
-- [Lab guidance](#lab-guidance)
+- [Lab tips](#lab-tips)
 - [Open Outlook and sign in](#open-outlook-and-sign-in)
 - [Create the add-in project](#create-the-add-in-project)
 - [Update the code](#update-the-code)
 - [Prepare to test your add-in](#prepare-to-test-your-add-in)
 - [Try it out](#try-it-out)
 
-## Lab guidance
+## Lab tips
 
 **Tip #1**  
 At the top of this pane are two tabs: **Instructions** and **Resources**. 
