@@ -55,7 +55,7 @@ A few minutes from now, you'll be testing the Outlook add-in that you've built. 
 
 1. If the **Make Office work smarter for you** dialog appears, select **No** and then choose **Accept**.
 
-1. When Outlook opens, you'll see a **PRODUCT NOTICE** banner below the ribbon that indicates "Most of the features of Outlook have been disabled because it hasn't been activated." 
+1. When Outlook opens, you'll see a **PRODUCT NOTICE** banner below the ribbon that indicates "Most of the features of Outlook have been disabled because it hasn't been activated." You can ignore this warning.
 
 1. Close Outlook and then restart Outlook. The **PRODUCT NOTICE** banner should not be displayed after you've restarted Outlook.
 
