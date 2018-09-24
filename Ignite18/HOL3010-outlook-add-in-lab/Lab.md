@@ -59,7 +59,7 @@ A few minutes from now, you'll be testing the Outlook add-in that you've built. 
 
 1. Close Outlook and then restart Outlook. The **PRODUCT NOTICE** banner should not be displayed after you've restarted Outlook.
 
-Now that Outlook is configured, leave it open and move on to instructions in the next section of this lab, ([Create the add-in project](#create-the-add-in-project))
+Now that Outlook is configured, let's get started with ([creating the add-in project](#create-the-add-in-project)! Leave Outlook open and move on to instructions in the next section.
 
 ## Create the add-in project
 
