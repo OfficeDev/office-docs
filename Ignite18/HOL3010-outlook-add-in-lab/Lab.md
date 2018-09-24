@@ -43,7 +43,7 @@ A few minutes from now, you'll be testing the Outlook add-in that you've built. 
 
 1. If prompted to choose account type, choose **Office 365**.
 
-1. When the **Enter password** dialog appears, click the **[T]** button next to the Office 365 **Password** on the **Resources** tab (to automatically type the username into the dialog's textbox), then choose **Sign in**.
+1. When the **Enter password** dialog appears, click the **[T]** button next to the Office 365 **Password** on the **Resources** tab (to automatically type the password into the dialog's textbox), then choose **Sign in**.
 
 1. In the **Use the account everywhere on your device** dialog, accept the default settings and choose **Yes**.
 
