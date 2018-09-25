@@ -108,9 +108,9 @@ Complete the following steps to create a custom function named **STOCKPRICE** th
 
 1. In this lab, you'll use Visual Studio Code as your code editor. Open a command prompt and navigate to the **C:\Users\LabUser\stock-ticker** folder, then run the following command to open Visual Studio Code:
 
-```
-code .
-```
+    ```
+    code .
+    ```
 
 1. In Visual Studio Code, open the file **src/customfunctions.js** and place your cursor on the blank line that immediately follows the end of the **increment** function. With your cursor on that line, press the **[T]** button next to the following JavaScript code block in this Lab Guide to automatically copy/paste the code into **src/customfunctions.js**, and then save the file.
 
