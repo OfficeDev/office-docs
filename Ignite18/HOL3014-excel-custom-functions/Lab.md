@@ -65,17 +65,17 @@ You'll begin this tutorial by using the Yo Office generator to create the files 
 
 6. When the **Sign in** dialog appears, open the **Resources** tab within this lab manual and click the **[T]** button next to the Office 365 **Username** (to automatically type the username into the dialog's textbox), then choose **Next**.
 
-7. When the **Enter password** dialog appears, open the **Resources** tab within this lab manual and click the **[T]** button next to the Office 365 **Password** (to automatically type the password into the dialog's textbox), then choose **Sign in**.
+7. In the **Enter password** dialog, open the **Resources** tab within this lab manual and click the **[T]** button next to the Office 365 **Password** (to automatically type the password into the dialog's textbox), then choose **Sign in**.
 
-    - In the **Stay signed in?** dialog, choose **Yes**.
+8. In the **Stay signed in?** dialog, choose **Yes**.
 
-8. In Excel Online, choose **New blank workbook**. 
+9. In Excel Online, choose **New blank workbook**. 
 
-9. In the **Your OneDrive is not set up** dialog, choose **Go to OneDrive -->**. When you see confirmation that **Your OneDrive is ready**, return to Excel Online in the other browser tab.
+10. In the **Your OneDrive is not set up** dialog, choose **Go to OneDrive -->**. When you see confirmation that **Your OneDrive is ready**, return to Excel Online in the other browser tab.
 
-10. In Excel Online, choose **New blank workbook**. 
+11. In Excel Online, choose **New blank workbook**. 
 
-11. Register your custom functions add-in in Excel by completing the following steps:
+12. Register your custom functions add-in in Excel by completing the following steps:
 
     1. Select **Insert** > **Add-ins**. 
     2. Choose **Manage My Add-ins** and select **Upload My Add-in**. 
