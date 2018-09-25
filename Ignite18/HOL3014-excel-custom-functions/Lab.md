@@ -75,7 +75,7 @@ You'll begin this tutorial by using the Yo Office generator to create the files 
 
 11. In Excel Online, choose **New blank workbook**. 
 
-12. Register your custom functions add-in in Excel by completing the following steps:
+12. Register your custom functions add-in in Excel Online by completing the following steps:
 
     - Select **Insert** > **Add-ins**. 
     - Choose **Manage My Add-ins** and select **Upload My Add-in**. 
@@ -159,7 +159,7 @@ code .
     }
     ```
    
-3. You must reregister the add-in in Excel in order for the new function to be available to end-users. Reregister your custom functions add-in in Excel by completing the following steps:
+3. You must reregister the add-in in Excel Online in order for the new function to be available to end-users. Reregister your custom functions add-in in Excel Online by completing the following steps:
 
     - Select **Insert** > **Add-ins**. 
     - Choose **Manage My Add-ins** and select **Upload My Add-in**. 
@@ -239,7 +239,7 @@ Complete the following steps to create a custom function named **STOCKPRICESTREA
     }
     ```
 
-3. You must reregister the add-in in Excel in order for the new function to be available to end-users. Reregister your custom functions add-in in Excel by completing the following steps:
+3. You must reregister the add-in in Excel Online in order for the new function to be available to end-users. Reregister your custom functions add-in in Excel Online by completing the following steps:
 
     - Select **Insert** > **Add-ins**. 
     - Choose **Manage My Add-ins** and select **Upload My Add-in**. 
