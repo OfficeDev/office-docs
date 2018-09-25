@@ -71,7 +71,7 @@ You'll begin this tutorial by using the Yo Office generator to create the files 
 
 9. In Excel Online, choose **New blank workbook**. 
 
-10. In the **Your OneDrive is not set up** dialog, choose **Go to OneDrive -->**. When you see confirmation that **Your OneDrive is ready**, return to Excel Online in the other browser tab.
+10. If the **Your OneDrive is not set up** dialog appears, choose **Go to OneDrive -->**. When you see confirmation that **Your OneDrive is ready**, return to Excel Online in the other browser tab.
 
 11. In Excel Online, choose **New blank workbook**. 
 
