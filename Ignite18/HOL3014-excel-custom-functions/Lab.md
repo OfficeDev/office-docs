@@ -77,10 +77,10 @@ You'll begin this tutorial by using the Yo Office generator to create the files 
 
 12. Register your custom functions add-in in Excel by completing the following steps:
 
-    1. Select **Insert** > **Add-ins**. 
-    2. Choose **Manage My Add-ins** and select **Upload My Add-in**. 
-    3. Choose **Browse...** and navigate to the root directory of the project that the Yo Office generator created (**C:\Users\LabUser\stock-ticker**).
-    4. Select the file **manifest.xml** and choose **Open**, then choose **Upload**.
+    - Select **Insert** > **Add-ins**. 
+    - Choose **Manage My Add-ins** and select **Upload My Add-in**. 
+    - Choose **Browse...** and navigate to the root directory of the project that the Yo Office generator created (**C:\Users\LabUser\stock-ticker**).
+    - Select the file **manifest.xml** and choose **Open**, then choose **Upload**.
 
 ## Exercise 2: Try out a prebuilt custom function
 
@@ -161,10 +161,10 @@ code .
    
 3. You must reregister the add-in in Excel in order for the new function to be available to end-users. Reregister your custom functions add-in in Excel by completing the following steps:
 
-    1. Select **Insert** > **Add-ins**. 
-    2. Choose **Manage My Add-ins** and select **Upload My Add-in**. 
-    3. Choose **Browse...** and navigate to the root directory of the project that the Yo Office generator created (**C:\Users\LabUser\stock-ticker**).
-    4. Select the file **manifest.xml** and choose **Open**, then choose **Upload**.
+    - Select **Insert** > **Add-ins**. 
+    - Choose **Manage My Add-ins** and select **Upload My Add-in**. 
+    - Choose **Browse...** and navigate to the root directory of the project that the Yo Office generator created (**C:\Users\LabUser\stock-ticker**).
+    - Select the file **manifest.xml** and choose **Open**, then choose **Upload**.
 
 4. Now, let's try out the new function. In any cell of your workbook, type the text **=CONTOSO.STOCKPRICE("MSFT")** and press enter. You should see that the result in the cell is the current stock price for one share of Microsoft stock.
 
@@ -241,10 +241,10 @@ Complete the following steps to create a custom function named **STOCKPRICESTREA
 
 3. You must reregister the add-in in Excel in order for the new function to be available to end-users. Reregister your custom functions add-in in Excel by completing the following steps:
 
-    1. Select **Insert** > **Add-ins**. 
-    2. Choose **Manage My Add-ins** and select **Upload My Add-in**. 
-    3. Choose **Browse...** and navigate to the root directory of the project that the Yo Office generator created (**C:\Users\LabUser\stock-ticker**).
-    4. Select the file **manifest.xml** and choose **Open**, then choose **Upload**.
+    - Select **Insert** > **Add-ins**. 
+    - Choose **Manage My Add-ins** and select **Upload My Add-in**. 
+    - Choose **Browse...** and navigate to the root directory of the project that the Yo Office generator created (**C:\Users\LabUser\stock-ticker**).
+    - Select the file **manifest.xml** and choose **Open**, then choose **Upload**.
 
 4. Now, let's try out the new function. In any cell of your workbook, type the text **=CONTOSO.STOCKPRICESTREAM("MSFT")** and press enter. Provided that the stock market is open, you should see that the result in the cell is constantly updated to reflect the real-time price for one share of Microsoft stock.
 
