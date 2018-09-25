@@ -43,7 +43,7 @@ You'll begin this tutorial by using the Yo Office generator to create the files 
     
     After you complete the wizard, the generator will create the project and install supporting Node components. Wait until this process completes before you move on to next steps in this lab guide.
     
-2. At the command prompt, run the following command to navigate to your new folder.
+2. At the command prompt, run the following command to navigate to the project folder.
 
     ```bash
     cd stock-ticker
