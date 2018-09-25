@@ -37,9 +37,9 @@ You'll begin this tutorial by using the Yo Office generator to create the files 
     ![Yo Office bash prompts for custom functions](images/yo-office-cfs-stock-ticker-2.png)
 
     Answer the prompts as follows:
-    - Choose a project type: `Excel Custom Functions Add-in project (...)`
-    - Choose a script type: `Javascript`
-    - What do you want to name your add-in? `stock-ticker`
+    - Choose a project type: **Excel Custom Functions Add-in project (...)**
+    - Choose a script type: **Javascript**
+    - What do you want to name your add-in? **stock-ticker**
     
     After you complete the wizard, the generator will create the project and install supporting Node components. Wait until this process completes before you move on to next steps in this lab guide.
     
