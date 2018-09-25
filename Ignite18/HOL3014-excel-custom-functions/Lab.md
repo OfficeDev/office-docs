@@ -174,7 +174,11 @@ The **STOCKPRICE** function that you just created returns the price of a stock a
 
 Complete the following steps to create a custom function named **STOCKPRICESTREAM** that requests the price of the specified stock every 1000 milliseconds (provided that the previous request has completed). While the initial request is in-progress, you may see the placeholder value **#GETTING_DATA** the cell where the function is being called. When a value is returned by the function, **#GETTING_DATA** will be replaced by that value in the cell.
 
-1. In Visual Studio Code, open the file **src/customfunctions.js**, place your cursor after the closing curly brace for the **stockPrice** function, and press **Enter** to add a new line after the **stockPrice** function. With your cursor on the new line, press the **[T]** button next to the following JavaScript code block in this Lab Guide to automatically copy/paste the code into **src/customfunctions.js**, and then save the file.
+1. In Visual Studio Code, open the file **src/customfunctions.js** and then:
+
+    - Place your cursor after the closing curly brace for the **stockPrice** function, and press **Enter** to add a new line after the **stockPrice** function. 
+    
+    - With your cursor on the new line, press the **[T]** button next to the following JavaScript code block in this Lab Guide to automatically copy/paste the code into **src/customfunctions.js**, and then save the file.
     
     ```javascript
     function stockPriceStream(ticker, handler) {
