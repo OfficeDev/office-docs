@@ -100,7 +100,7 @@ The **ADD** custom function computes the sum of the two numbers that you specify
 
 _Note that when a call is made in Excel Online, you may see `#GETTING_DATA` appear in a cell. Once a value is returned, this notification should disappear._
 
-## Exercise 3: Create your own custom function
+## Exercise 3: Create a custom function that requests data from the web
 
 What if you needed a function that could retrieve and display the price of a stock in real time? Custom functions are designed so that you can easily request data from the web asynchronously.
   
@@ -168,7 +168,7 @@ code .
 
 4. Now, let's try out the new function. In any cell of your workbook, type the text **=CONTOSO.STOCKPRICE("MSFT")** and press enter. You should see that the result in the cell is the current stock price for one share of Microsoft stock.
 
-## Exercise 4: Create a streaming custom function
+## Exercise 4: Create a custom function that streams real-time data from the web
 
 The **STOCKPRICE** function that you just created returns the price of a stock at a specific moment in time, but stock prices are always changing. Let's create a custom function that streams data from an API to get real-time updates on a stock price.
 
