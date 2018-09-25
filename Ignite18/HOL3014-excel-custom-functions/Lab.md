@@ -112,7 +112,7 @@ Complete the following steps to create a custom function named **STOCKPRICE** th
     code .
     ```
 
-1. In Visual Studio Code, open the file **src/customfunctions.js** and place your cursor on the blank line that immediately follows the end of the **increment** function. With your cursor on that line, press the **[T]** button next to the following JavaScript code block in this Lab Guide to automatically copy/paste the code into **src/customfunctions.js**, and then save the file.
+1. In Visual Studio Code, open the file **src/customfunctions.js** and place your cursor on the blank line that immediately follows the end of the **increment** function. With your cursor on that blank line, press the **[T]** button next to the following JavaScript code block in this Lab Guide to automatically copy/paste the code into **src/customfunctions.js**, and then save the file.
 
    In this code, notice that the asynchronous function returns a JavaScript Promise with the data from the IEX Trading API. Asynchronous custom functions must either return a new Promise or use JavaScript's **async** / **await** syntax.
     
